@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mb-2">
+
+    </div>
+    <div class="col-md-6">
+      <!-- talvez devesse mudar para um novo componente -->
+      <h4 class="text-center">Login</h4>
+
+      <form class="form">
+        <div class="form-group">
+          <input
+          class="form-control m-2"
+          placeholder="Nome de usuario"
+          [(ngModel)]="usuario"
+          name="usuario"
+          />
+          <input
+          type="password"
+          class="form-control m-2"
+          placeholder="Senha"
+          [(ngModel)]="senha"
+          name="senha"
+          />
+          <button class="btn btn-primary btn-block" role="button" routerLink="enter-page">Login</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
