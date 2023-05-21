@@ -1,32 +1,30 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 mb-2">
 
-    </div>
-    <div class="col-md-6">
-      <!-- talvez devesse mudar para um novo componente -->
-      <h4 class="text-center">Login</h4>
+<header style="background-color: #4B89BF; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+  <h2 class="d-flex justify-content-center  pt-3 pb-3" style="color: #FFF;">Calendar.io</h2>
+</header>
 
-      <form class="form">
-        <div class="form-group">
+<div class="container mt-5 " >
+  <!-- <h4  style="color: #362FD9;">Login</h4> -->
+      <form class="form d-flex justify-content-center">
+        <!-- verificar por que nao esta ficando responsivo -->
+        <div class="form-group" style="margin-top: 25px; ">
           <input
-          class="form-control m-2"
+          class="form-control m-3"
           placeholder="Nome de usuario"
           [(ngModel)]="usuario"
           name="usuario"
           />
           <input
           type="password"
-          class="form-control m-2"
+          class="form-control m-3"
           placeholder="Senha"
           [(ngModel)]="senha"
           name="senha"
           />
-          <button class="btn btn-primary btn-block" role="button" routerLink="enter-page">Login</button>
+          <button class="button m-3"  role="button" routerLink="schedule">Login</button>
         </div>
-
       </form>
-
-    </div>
-  </div>
 </div>
+
+
+

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
+import 'bootstrap';
 
 @Component({
   selector: 'app-schedule',
@@ -11,5 +13,13 @@ export class ScheduleComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
+  isModalOpen: boolean = false;
+
+  InsertNew(){
+    this.isModalOpen = true;
+  }
+
 
 }
