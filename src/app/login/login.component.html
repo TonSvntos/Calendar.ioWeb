@@ -11,17 +11,17 @@
           <input
           class="form-control m-3"
           placeholder="Nome de usuario"
-          [(ngModel)]="usuario"
+          [(ngModel)]="login.email"
           name="usuario"
           />
           <input
           type="password"
           class="form-control m-3"
           placeholder="Senha"
-          [(ngModel)]="senha"
+          [(ngModel)]="login.senha"
           name="senha"
           />
-          <button class="button m-3"  role="button" routerLink="schedule">Login</button>
+          <button class="button m-3"  role="button" (click)="Logar()">Login</button>
         </div>
       </form>
 </div>
