@@ -1,3 +1,10 @@
+body{
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-y: auto;
+}
+
 .container_form {
   width: 700px;
   margin: auto;
