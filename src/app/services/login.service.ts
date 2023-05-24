@@ -1,7 +1,7 @@
+import { Login } from './../models/ILogin';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Login } from '../models/ILogin';
 
 
 @Injectable({
@@ -9,10 +9,10 @@ import { Login } from '../models/ILogin';
 })
 export class LoginService {
 
-  private readonly API = 'http://localhost:3000/pensamentos'
+  private readonly API = 'http://localhost:57239/api'
   constructor(private http: HttpClient) { }
 
-  Logar(): Observable<Login>{
-    return this.http.get<Login>(this.API)
+  Autenticar(item: Login): Observable<any>{
+    return this.http.post('http://localhost:57239/api/Usuarios/Login' , item);
   }
 }

@@ -1,14 +1,14 @@
-<nav style="background-color: #4B89BF;" class="navbar navbar-expand-lg bg-body-tertiary">
+<nav style="background-color: #4B89BF; " class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Calendar.io</a>
+    <a class="navbar-brand" href="#" style="color: white;">Calendar.io</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" >
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="/schedule">Agenda</a>
-        <a class="nav-link" routerLink="/search">Lista de clientes</a>
-        <a class="nav-link" routerLink="">Sair</a>
+        <a class="nav-link active" aria-current="page" href="/schedule" style="color: white;">Agenda</a>
+        <a class="nav-link" routerLink="/search" style="color: white;">Lista de clientes</a>
+        <a class="nav-link" routerLink="" style="color: white;">Sair</a>
       </div>
     </div>
   </div>
@@ -18,41 +18,47 @@
 <div class=" text-center">
   <div class="row align-items-start">
     <!-- comeco do filtro -->
-    <div class="col-md-1" id="filtro">
-      <table class="table" >
-        <thead>
-            <h2>Filtros</h2>
-        </thead>
-        <tbody>
-          <ul>
-            <label scope="col">Nome</label>
-            <div><input type="text" name="" id=""></div>
-            <label scope="col">Endereço</label>
-            <div><input type="text" name="" id=""></div>
+    <div id="filtro">
+      <div class="container">
+        <h1>Busca de cliente</h1>
+        <table class="table">
+          <thead style="background-color: #4B89BF; color: white;">
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Telefone</th>
+              <th scope="col">Endereço</th>
+              <th scope="col">Bairro</th>
 
-            <label scope="col">Bairro</label>
-            <div><input type="text" name="" id=""></div>
+              <th scope="col">Data do chamado</th>
+              <th scope="col">Data do serviço</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" name="" id=""></td>
+              <td><input type="text" name="" id=""></td>
+              <td><input type="text" name="" id=""></td>
+              <td><input type="text" name="" id=""></td>
+              <td><input type="date" name="" id=""></td>
+              <td><input type="date" name="" id=""></td>
+            </tr>
 
-            <label scope="col">Data do chamado</label>
-            <div><input type="date" /></div>
-            <label scope="col">Data do serviço</label>
-            <div><input type="date"  /></div>
-          </ul>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
     </div>
       <!-- fim do filtro -->
 
 
-    <div class="col">
+    <div >
       <div class="container">
-        <table class="table">
-          <thead>
+        <table class="table" >
+          <thead style="background-color: #4B89BF; color: white;">
             <tr>
               <th scope="col">#</th>
               <th scope="col">Nome</th>
               <th scope="col">Telefone</th>
               <th scope="col">Endereço</th>
+              <th scope="col">Bairro</th>
               <th scope="col">Data do chamado</th>
               <th scope="col">Data do serviço</th>
             </tr>
@@ -60,21 +66,12 @@
           <tbody>
             <tr>
               <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
+              <td>Marcos Ribeiro</td>
+              <td>991998899</td>
+              <td>Rua Pedro Lessa 1024</td>
+              <td>Aparecida</td>
+              <td>21/05/2023</td>
+              <td>29/05/2023</td>
             </tr>
           </tbody>
         </table>

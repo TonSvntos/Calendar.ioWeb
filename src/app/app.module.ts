@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchCustomersComponent } from './search-customers/search-customers.component';
+import { LoginService } from './services/login.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,8 +23,12 @@ import { SearchCustomersComponent } from './search-customers/search-customers.co
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
+
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
