@@ -1,30 +1,54 @@
 
-<header style="background-color: #4B89BF; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
-  <h2 class="d-flex justify-content-center  pt-3 pb-3" style="color: #FFF;">Calendar.io</h2>
-</header>
-
-<div class="container mt-5 " >
-  <!-- <h4  style="color: #362FD9;">Login</h4> -->
-      <form class="form d-flex justify-content-center">
-        <!-- verificar por que nao esta ficando responsivo -->
-        <div class="form-group" style="margin-top: 25px; ">
-          <input
+  <!-- <header style="background-color: #20597a">
+    <h2 class="d-flex justify-content-center pt-3 pb-3" style="color: #FFF;">Calendar.io</h2>
+  </header> -->
+  <!-- <div>
+    <form class="form d-flex justify-content-center">
+      <div class="form-group" style="margin-top: 4%; margin-right: 2%;">
+        <input
           class="form-control m-3"
           placeholder="Nome de usuario"
           [(ngModel)]="login.email"
           name="usuario"
-          />
-          <input
+          style="background-color: #fff">
+        <input
           type="password"
           class="form-control m-3"
           placeholder="Senha"
           [(ngModel)]="login.senha"
           name="senha"
-          />
-          <button class="button m-3"  role="button" (click)="Logar()">Login</button>
-        </div>
-      </form>
-</div>
+          style="background-color: #fff">
+        <button class="button m-3" role="button" routerLink="/schedule">Login</button>
+      </div>
+    </form>
+  </div> -->
 
+<body>
+  <div>
+    <h4>Bem-vindo!</h4>
+    <form class="form d-flex justify-content-center">
+      <div class="form-group" style="margin-top: 2%">
+        <input
+          class="form-control m-3"
+          placeholder="Nome de usuario"
+          [(ngModel)]="login.email"
+          name="usuario"
+          style="background-color: #fff">
+        <input
+          type="password"
+          class="form-control m-3"
+          placeholder="Senha"
+          [(ngModel)]="login.senha"
+          name="senha"
+          style="background-color: #fff">
+        <button class="button m-3" role="button" routerLink="/schedule">Login</button>
+      </div>
+    </form>
+  </div>
 
+  <div class="titulo">
+    <h2>Calendar.io</h2>
+    <p>Organize o seu dia!</p>
+  </div>
 
+</body>

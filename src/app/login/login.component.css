@@ -1,7 +1,47 @@
+body{
+  height: 100%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  background: #e8ece2;
+}
+
+.titulo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #004E64;;
+}
+
+h2{
+  color: #FFF;
+  font-size: 80px;
+}
+
+p{
+  color: #FFF;
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+h4{
+  color: #004E64;
+  text-align: center;
+  padding-top: 30%;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
 .button {
   appearance: button;
   backface-visibility: hidden;
-  background-color: #4B89BF;
+  background-color: #16425B;
   border-radius: 6px;
   border-width: 0;
   box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
@@ -10,7 +50,7 @@
   cursor: pointer;
   font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
   font-size: 100%;
-  height: 44px;
+  height: 40px;
   line-height: 1.15;
   margin: 12px 0 0;
   outline: none;
@@ -36,9 +76,9 @@
 }
 
 .buttonAlign {
-    display: inline-block;
-    width: 200px;
-    vertical-align: top;
-    margin-left: 45%;
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+  margin-left: 45%;
 }
 
