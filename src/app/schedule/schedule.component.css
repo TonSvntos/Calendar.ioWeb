@@ -13,6 +13,12 @@ body{ height: 100%}
   position: relative;
 }
 
+.schedule-table table td.day { /*formatação dos dias da semana*/
+  background: #1C557D !important;
+  color: #fff;
+  font-size: 20px;
+}
+
 .active h4 { /*Atividades*/
   font-weight: 500;
   color: #000;
@@ -40,7 +46,7 @@ transform: translateY(-50%);
 
 .schedule-table table tbody td { /*Tabela*/
 vertical-align: middle;
-border: 1px solid #AFAFAF; /*cor - linha da tabela*/
+/* border: 1px solid #AFAFAF; cor - linha da tabela */
 height: 100%;
 font-weight: 500;
 padding: 30px;
@@ -84,8 +90,3 @@ transition: all 0.3s linear 0s;
   min-width: 165px;
 }
 
-.schedule-table table td.day { /*formatação dos dias da semana*/
-  background: #004766 !important;
-  color: #fff;
-  font-size: 20px;
-}

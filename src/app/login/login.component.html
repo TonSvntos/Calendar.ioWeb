@@ -1,28 +1,3 @@
-
-  <!-- <header style="background-color: #20597a">
-    <h2 class="d-flex justify-content-center pt-3 pb-3" style="color: #FFF;">Calendar.io</h2>
-  </header> -->
-  <!-- <div>
-    <form class="form d-flex justify-content-center">
-      <div class="form-group" style="margin-top: 4%; margin-right: 2%;">
-        <input
-          class="form-control m-3"
-          placeholder="Nome de usuario"
-          [(ngModel)]="login.email"
-          name="usuario"
-          style="background-color: #fff">
-        <input
-          type="password"
-          class="form-control m-3"
-          placeholder="Senha"
-          [(ngModel)]="login.senha"
-          name="senha"
-          style="background-color: #fff">
-        <button class="button m-3" role="button" routerLink="/schedule">Login</button>
-      </div>
-    </form>
-  </div> -->
-
 <body>
   <div>
     <h4>Bem-vindo!</h4>
@@ -41,14 +16,12 @@
           [(ngModel)]="login.senha"
           name="senha"
           style="background-color: #fff">
-        <button class="button m-3" role="button" routerLink="/schedule">Login</button>
+        <button class="button m-3" role="button" (click)="Logar()">Login</button>
       </div>
     </form>
   </div>
-
   <div class="titulo">
     <h2>Calendar.io</h2>
     <p>Organize o seu dia!</p>
   </div>
-
 </body>
