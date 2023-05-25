@@ -1,15 +1,18 @@
 
-<nav style="background-color: #004E64; " class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg" style="background: #004E64">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" style="color: white;">Calendar.io</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" routerLink="/schedule" style="color: #fff; font-weight: bold;">Calendar.io</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" >
+    <div>
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="/schedule" style="color: white;">Agenda</a>
-        <a class="nav-link" routerLink="/search" style="color: white;">Lista de clientes</a>
-        <a class="nav-link" routerLink="" style="color: white;">Sair</a>
+        <li class="nav-item active">
+          <a class="nav-link" style="color: #fff;" aria-current="page" routerLink="/schedule">Agenda</a>
+        </li>
+        <a class="nav-link"  style="color: #fff" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Novo cliente</a>
+        <a class="nav-link" style="color: #fff;" routerLink="/search">Lista de clientes</a>
+        <a class="nav-link" style="color: #fff;" routerLink="">Sair</a>
       </div>
     </div>
   </div>
@@ -31,22 +34,30 @@
 
               <th scope="col">Data do serviço</th>
               <th scope="col">Tipo de Serviço</th>
+              <th scope="col">Buscar</th>
+
 
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><input type="text" name="" id=""></td>
-              <td><input type="text" name="" id=""></td>
-              <td><input type="text" name="" id=""></td>
-              <td><input type="text" name="" id=""></td>
-              <td><input type="date" name="" id=""></td>
+              <td><input class="form-control" type="text" name="" id="" [ngModel]="filterCliente.nomeCliente"></td>
+              <td><input class="form-control" type="number" name="" id="" [ngModel]="filterCliente.clienteTelefone"></td>
+              <td><input class="form-control" type="text" name="" id="" [ngModel]="filterCliente.clienteEndereco"></td>
+              <td><input class="form-control" type="text" name="" id="" [ngModel]="filterCliente.clienteBairro"></td>
+              <td><input class="form-control" type="date" name="" id="" [ngModel]="filterCliente.dataDoAtendimento"></td>
               <td><select class="form-select" id="floatingSelect" >
-                <option selected>Instalação</option>
+                <option value="Todos" selected>Todos</option>
+                <option>Instalação</option>
                 <option>Higienização</option>
                 <option>Remoção</option>
                 <option>Revisão</option>
               </select></td>
+              <td>
+                <button type="button" (click)="Search()" class="btn" style="background-color: #004E64; color: #fff;" tooltip="Search">
+                  <span class="fa fa-search" aria-hidden="true" style="font-size:18px"></span>
+                </button>
+              </td>
             </tr>
 
           </tbody>
@@ -67,6 +78,8 @@
               <th scope="col">Bairro</th>
               <th scope="col">Data do serviço</th>
               <th scope="col">Tipo de Serviço</th>
+              <th scope="col">Editar</th>
+
             </tr>
           </thead>
           <tbody>
@@ -78,6 +91,13 @@
               <td>Aparecida</td>
               <td>21/05/2023</td>
               <td>Instalação</td>
+              <td style="text-align: center">
+                <div>
+                  <button class="btn" type="button" style="background-color: #004E64; color: white;" title="Update">
+                    <span class="fa fa-pencil" aria-hidden="true" style="cursor:pointer; "></span>
+                  </button>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>

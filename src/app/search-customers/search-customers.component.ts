@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ICliente } from '../models/ICliente';
+
 
 
 @Component({
@@ -14,5 +16,19 @@ export class SearchCustomersComponent implements OnInit {
   }
 
 
+  filterCliente: ICliente = {
+    nomeCliente: '',
+    clienteEndereco: '',
+    clienteBairro: '',
+    clienteTelefone: null,
+    tipoDeServico: 'Todos',
+    dataDoAtendimento: null
+  }
 
+  listCliente: Array<ICliente> = [];
+
+
+  Search(){
+    console.log('buscou');
+  }
 }
