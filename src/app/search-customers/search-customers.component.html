@@ -151,6 +151,17 @@
           <input type="date"  [ngModel]="addCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateInsertDate($event)" class="form-control" />
         </div>
         <div class="mb-3">
+          <label for="exampleFormControlSelect1">Hora</label>
+          <select class="form-select" id="floatingSelect"  >
+            <option value="7" selected>07:00</option>
+            <option value="9">09:00</option>
+            <option value="11">11:00</option>
+            <option value="15">15:00</option>
+            <option value="17">17:00</option>
+
+          </select>
+        </div>
+        <div class="mb-3">
           <label for="inputAddress">Endereço</label>
           <input
             type="text"
