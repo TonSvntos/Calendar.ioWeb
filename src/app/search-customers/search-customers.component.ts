@@ -114,22 +114,22 @@ export class SearchCustomersComponent implements OnInit {
 
   errorMsgInsOrUpd: string;
 
-  ValidateInsUpd(){
+  ValidateInsUpd(item:ICliente){
     this.errorMsgInsOrUpd = "";
 
-    if (this.addCliente.nomeCliente === null || this.addCliente.nomeCliente === "" || this.addCliente.nomeCliente === undefined) {
+    if (item.nomeCliente === null || item.nomeCliente === "" || item.nomeCliente === undefined) {
       this.errorMsgInsOrUpd = "Por favor, insira o nome do cliente";
       return false;
     }
-    if (this.addCliente.telefoneCliente == null || this.addCliente.telefoneCliente === undefined) {
+    if (item.telefoneCliente == null || item.telefoneCliente === undefined) {
       this.errorMsgInsOrUpd = "Por favor, insira o telefone do cliente";
       return false;
     }
-    if (this.addCliente.clienteEndereco === null || this.addCliente.clienteEndereco === "" || this.addCliente.clienteEndereco === undefined) {
+    if (item.clienteEndereco === null || item.clienteEndereco === "" || item.clienteEndereco === undefined) {
       this.errorMsgInsOrUpd = "Por favor, insira o endereço do cliente";
       return false;
     }
-    if (this.addCliente.clienteBairro === null || this.addCliente.clienteBairro === "" || this.addCliente.clienteBairro === undefined) {
+    if (item.clienteBairro === null || item.clienteBairro === "" || item.clienteBairro === undefined) {
       this.errorMsgInsOrUpd = "Por favor, insira um bairro";
       return false;
     }
@@ -143,12 +143,65 @@ export class SearchCustomersComponent implements OnInit {
   }
 
 
+  FindClienteList(id: number): ICliente {
+
+
+    let findGroup: ICliente = this.listCliente.find(x => x.clienteId === id);
+
+    if (findGroup != null) {
+      this.updCliente = findGroup;
+    }
+
+    return this.updCliente;
+  }
+
+  updCliente: ICliente = {
+    clienteId: 0,
+    nomeCliente: '',
+    clienteEndereco: '',
+    clienteBairro: '',
+    telefoneCliente: null,
+    tipoDeServico: 'Instalacao',
+    dataDoAtendimento: new Date()
+  }
+
+  Update(){
+
+    // this.updCliente = this.FindClienteList(id);
+
+    if(!this.ValidateInsUpd(this.updCliente))
+      {
+        alert(this.errorMsgInsOrUpd);
+        return false;
+      }
+
+      this.ClienteService.Atualizar(this.updCliente).subscribe(
+        data => {
+          if(data !== undefined)
+          {
+            if(data.friendlyErrorMessage !== null)
+            {
+              alert(data.friendlyErrorMessage);
+
+            }
+            else{
+              alert('Cliente atualizado com sucesso!');
+            }
+          }
+        },
+        error => {
+        alert('Erro inesperado');
+        console.log(error);
+        }
+      );
+
+      return true;
+  }
+
   Adcionar(){
-      console.log(this.addCliente.telefoneCliente);
-      // console.log(this.addCliente.dataDoAtendimento);
 
 
-      if(!this.ValidateInsUpd())
+      if(!this.ValidateInsUpd(this.addCliente))
       {
         alert(this.errorMsgInsOrUpd);
         return false;
@@ -179,9 +232,7 @@ export class SearchCustomersComponent implements OnInit {
       }
 
 
-      verificarTelefone(){
-        console.log(this.addCliente.telefoneCliente)
-      }
+      buscado: boolean = false;
 
   Search(){
 
@@ -200,7 +251,7 @@ export class SearchCustomersComponent implements OnInit {
             }
             else{
               this.listCliente = data.data as Array<ICliente>;
-              console.log(this.listCliente)
+              this.buscado = true;
             }
           }
         },

@@ -1,0 +1,91 @@
+body{ height: 100%}
+
+.service{ background: #062837 } /*cor da barra*/
+
+.nav-link{ color: #fff; } /*cor da letra na barra*/
+
+.schedule-table table th { /*formatação da linha "Serviços"*/
+  padding: 15px;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  position: relative;
+}
+
+.active h4 { /*Atividades*/
+  font-weight: 500;
+  color: #000;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.schedule-table table tbody td.active:hover .hover { /*Fundo azul que aparece em cima das atividades*/
+  transform: translate(-50%, -50%) scale(1);
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.schedule-table table thead th:before { /*Divisão que tem na linha de "Serviço"*/
+content: "";
+width: 3px;
+height: 35px;
+background: rgba(255, 255, 255, 0.2);
+position: absolute;
+right: -1px;
+top: 50%;
+transform: translateY(-50%);
+}
+
+.schedule-table table tbody td { /*Tabela*/
+vertical-align: middle;
+border: 1px solid #AFAFAF; /*cor - linha da tabela*/
+height: 100%;
+font-weight: 500;
+padding: 30px;
+text-align: center;
+background-color: #F3F8FA;
+}
+
+.schedule-table table tbody td .hover h4 { /*Cor do titulo na janela de cada atividade*/
+font-weight: 700;
+font-size: 20px;
+color: #ffffff;
+margin-bottom: 5px;
+}
+
+.schedule-table table tbody td .hover span { /*Cor do subtitulo na janela de cada atividade*/
+color: #ffffff;
+font-weight: 600;
+font-size: 18px;
+}
+
+.schedule-table table tbody td .hover { /*isso aq se tirar zoa com a formatação da janela*/
+position: absolute;
+left: 50%;
+top: 50%;
+width: 120%;
+height: 120%;
+transform: translate(-50%, -50%) scale(0.8);
+z-index: 99;
+background: #86d4f5;
+border-radius: 0.25rem;
+padding: 25px 0;
+visibility: hidden;
+opacity: 0;
+transition: all 0.3s linear 0s;
+}
+
+.schedule-table table tbody td.active { /*isso aq fica pra n dar ruim*/
+  position: relative;
+  z-index: 10;
+  transition: all 0.3s linear 0s;
+  min-width: 165px;
+}
+
+.schedule-table table td.day { /*formatação dos dias da semana*/
+  background: #004766 !important;
+  color: #fff;
+  font-size: 20px;
+}

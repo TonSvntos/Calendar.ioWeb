@@ -7,11 +7,7 @@
     </button>
     <div>
       <div class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" style="color: #fff;" aria-current="page" routerLink="/schedule">Agenda</a>
-        </li>
         <a class="nav-link"  style="color: #fff" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Novo cliente</a>
-        <a class="nav-link" style="color: #fff;" routerLink="/search">Lista de clientes</a>
         <a class="nav-link" style="color: #fff;" routerLink="">Sair</a>
       </div>
     </div>
@@ -66,7 +62,7 @@
       <!-- fim do filtro -->
     <!-- COMECO TABELA -->
     <div >
-      <div class="container">
+      <div class="container" [hidden]="!buscado">
         <table class="table" >
           <thead style="background-color: #004E64; color: white;">
             <tr>
@@ -88,11 +84,11 @@
               <td>{{item.telefoneCliente}}</td>
               <td>{{item.clienteEndereco}}</td>
               <td>{{item.clienteBairro}}</td>
-              <td>{{item.dataDoAtendimento | date: 'yyyy-MM-dd'}}</td>
+              <td>{{item.dataDoAtendimento | date: 'dd/MM/yyyy'}}</td>
               <td>{{item.tipoDeServico}}</td>
               <td style="text-align: center">
                 <div>
-                  <button class="btn" type="button" style="background-color: #004E64; color: white;" data-bs-toggle="modal" data-bs-target="#updateModal" title="Update">
+                  <button class="btn" type="button" style="background-color: #004E64; color: white;" data-bs-toggle="modal" data-bs-target="#updateModal" title="Update" (click)="FindClienteList(item.clienteId)">
                     <span class="fa fa-pencil" aria-hidden="true" style="cursor:pointer; "></span>
                   </button>
                 </div>
@@ -205,7 +201,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <header class="modal-header" style="background-color: #16425B; color: #fff;">
-        <h5 class="modal-title" id="exampleModalLabel">Adicionar novo cliente</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Atualizar cliente</h5>
         <button
           type="button"
           class="btn-close"
@@ -223,7 +219,7 @@
             name="nomeCliente"
             id="Nome"
             placeholder="Nome"
-            [(ngModel)]="addCliente.nomeCliente"
+            [(ngModel)]="updCliente.nomeCliente"
           />
         </div>
         <div class="mb-3">
@@ -234,12 +230,12 @@
             type="number"
             class="form-control"
             id="exampleFormControlInput1"
-            [(ngModel)]="addCliente.telefoneCliente"
+            [(ngModel)]="updCliente.telefoneCliente"
           />
         </div>
         <div class="mb-3">
           <label class="form-label">Data de Atendimento</label>
-          <input type="date"  [ngModel]="addCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateInsertDate($event)" class="form-control" />
+          <input type="date"  [ngModel]="updCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateInsertDate($event)" class="form-control" />
         </div>
         <div class="mb-3">
           <label for="inputAddress">Endereço</label>
@@ -248,7 +244,7 @@
             class="form-control"
             id="inputAddress"
             placeholder="Rua 9 de Julho, 23, apto71"
-            [(ngModel)]="addCliente.clienteEndereco"
+            [(ngModel)]="updCliente.clienteEndereco"
           />
         </div>
         <div class="mb-3">
@@ -258,12 +254,12 @@
             class="form-control"
             id="inputAddress"
             placeholder="Pompeia"
-            [(ngModel)]="addCliente.clienteBairro"
+            [(ngModel)]="updCliente.clienteBairro"
           />
         </div>
         <div class="mb-3">
           <label for="exampleFormControlSelect1">Tipo de Serviço</label>
-          <select [(ngModel)]="addCliente.tipoDeServico" class="form-select" id="floatingSelect" (change)="onServiceChange($event)" >
+          <select [(ngModel)]="updCliente.tipoDeServico" class="form-select" id="floatingSelect" (change)="onServiceChange($event)" >
             <option value="Instalacao" selected>Instalação</option>
             <option value="Higienizacao">Higienização</option>
             <option value="Remocao">Remoção</option>
@@ -273,7 +269,7 @@
       </main>
       <footer class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn" style="background: #16425B; color:#fff" (click)="Adcionar()">Adicionar</button>
+        <button type="button" class="btn" style="background: #16425B; color:#fff" (click)="Update()">Atualizar</button>
 
       </footer>
     </div>
