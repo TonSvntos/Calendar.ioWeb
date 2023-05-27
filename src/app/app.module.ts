@@ -9,7 +9,6 @@ import { SearchCustomersComponent } from './search-customers/search-customers.co
 import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ClienteService } from './services/cliente.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScheduleComponent } from './schedule/schedule.component';
 
 
@@ -23,8 +22,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    NgbModule
+    HttpClientModule
 
   ],
   providers: [
