@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from './navbar/navbar.component';
 import { SearchCustomersComponent } from './search-customers/search-customers.component';
 import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ClienteService } from './services/cliente.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -17,17 +18,19 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent
     , ScheduleComponent
     , LoginComponent
-    , NavbarComponent, SearchCustomersComponent
+    , SearchCustomersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
 
   ],
   providers: [
-    LoginService
+    LoginService,
+    ClienteService
   ],
   bootstrap: [AppComponent]
 })

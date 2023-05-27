@@ -41,10 +41,10 @@
           </thead>
           <tbody>
             <tr>
-              <td><input class="form-control" type="text" name="" id="" [ngModel]="filterCliente.nomeCliente"></td>
-              <td><input class="form-control" type="number" name="" id="" [ngModel]="filterCliente.clienteTelefone"></td>
-              <td><input class="form-control" type="text" name="" id="" [ngModel]="filterCliente.clienteEndereco"></td>
-              <td><input class="form-control" type="text" name="" id="" [ngModel]="filterCliente.clienteBairro"></td>
+              <td><input class="form-control" type="text" name="nomeCliente" id="" [(ngModel)]="filterCliente.nomeCliente"></td>
+              <td><input class="form-control" type="number" name="" id="" [(ngModel)]="filterCliente.telefoneCliente"></td>
+              <td><input class="form-control" type="text" name="" id="" [(ngModel)]="filterCliente.clienteEndereco"></td>
+              <td><input class="form-control" type="text" name="" id="" [(ngModel)]="filterCliente.clienteBairro"></td>
               <td><input class="form-control" type="date" name="" id="" [ngModel]="filterCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateFilterDate($event)"></td>
               <td><select class="form-select" id="floatingSelect" (change)="onServiceFilterChange($event)">
                 <option value="Todos" selected >Todos</option>
@@ -64,7 +64,6 @@
         </table>
     </div>
       <!-- fim do filtro -->
-<!-- <button (click)="InsertNew()"></button> -->
     <!-- COMECO TABELA -->
     <div >
       <div class="container">
@@ -86,14 +85,14 @@
             <tr *ngFor="let item of listCliente">
               <td>{{item.clienteId}}</td>
               <td>{{item.nomeCliente}}</td>
-              <td>{{item.clienteTelefone}}</td>
+              <td>{{item.telefoneCliente}}</td>
               <td>{{item.clienteEndereco}}</td>
               <td>{{item.clienteBairro}}</td>
               <td>{{item.dataDoAtendimento | date: 'yyyy-MM-dd'}}</td>
               <td>{{item.tipoDeServico}}</td>
               <td style="text-align: center">
                 <div>
-                  <button class="btn" type="button" style="background-color: #004E64; color: white;" title="Update">
+                  <button class="btn" type="button" style="background-color: #004E64; color: white;" data-bs-toggle="modal" data-bs-target="#updateModal" title="Update">
                     <span class="fa fa-pencil" aria-hidden="true" style="cursor:pointer; "></span>
                   </button>
                 </div>
@@ -105,10 +104,6 @@
     </div>
   </div>
 </div>
-
-
-
-
 
 
 <!-- Modal -->
@@ -129,6 +124,7 @@
           class="btn-close"
           data-bs-dismiss="modal"
           aria-label="Close"
+          style="background-color: #fff;"
         ></button>
       </header>
       <main class="modal-body">
@@ -137,9 +133,10 @@
           <input
             type="text"
             class="form-control"
+            name="nomeCliente"
             id="Nome"
             placeholder="Nome"
-            [ngModel]="addCliente.nomeCliente"
+            [(ngModel)]="addCliente.nomeCliente"
           />
         </div>
         <div class="mb-3">
@@ -150,13 +147,12 @@
             type="number"
             class="form-control"
             id="exampleFormControlInput1"
-            placeholder="(11) 91111-1111"
-            [ngModel]="addCliente.clienteTelefone"
+            [(ngModel)]="addCliente.telefoneCliente"
           />
         </div>
         <div class="mb-3">
           <label class="form-label">Data de Atendimento</label>
-          <input type="date" class="form-control" />
+          <input type="date"  [ngModel]="addCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateInsertDate($event)" class="form-control" />
         </div>
         <div class="mb-3">
           <label for="inputAddress">Endereço</label>
@@ -165,7 +161,7 @@
             class="form-control"
             id="inputAddress"
             placeholder="Rua 9 de Julho, 23, apto71"
-            [ngModel]="addCliente.clienteEndereco"
+            [(ngModel)]="addCliente.clienteEndereco"
           />
         </div>
         <div class="mb-3">
@@ -175,12 +171,12 @@
             class="form-control"
             id="inputAddress"
             placeholder="Pompeia"
-            [ngModel]="addCliente.clienteBairro"
+            [(ngModel)]="addCliente.clienteBairro"
           />
         </div>
         <div class="mb-3">
           <label for="exampleFormControlSelect1">Tipo de Serviço</label>
-          <select [ngModel]="addCliente.tipoDeServico" class="form-select" id="floatingSelect" (change)="onServiceChange($event)" >
+          <select [(ngModel)]="addCliente.tipoDeServico" class="form-select" id="floatingSelect" (change)="onServiceChange($event)" >
             <option value="Instalacao" selected>Instalação</option>
             <option value="Higienizacao">Higienização</option>
             <option value="Remocao">Remoção</option>
@@ -191,6 +187,94 @@
       <footer class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
         <button type="button" class="btn" style="background: #16425B; color:#fff" (click)="Adcionar()">Adicionar</button>
+
+      </footer>
+    </div>
+  </div>
+</section>
+
+
+<section
+  class="modal fade"
+  id="updateModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  style="text-align: left !important"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <header class="modal-header" style="background-color: #16425B; color: #fff;">
+        <h5 class="modal-title" id="exampleModalLabel">Adicionar novo cliente</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          style="background-color: #fff;"
+        ></button>
+      </header>
+      <main class="modal-body">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label" style="text-align: left;">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nomeCliente"
+            id="Nome"
+            placeholder="Nome"
+            [(ngModel)]="addCliente.nomeCliente"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput2" class="form-label"
+            >Telefone</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="exampleFormControlInput1"
+            [(ngModel)]="addCliente.telefoneCliente"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Data de Atendimento</label>
+          <input type="date"  [ngModel]="addCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateInsertDate($event)" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="inputAddress">Endereço</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress"
+            placeholder="Rua 9 de Julho, 23, apto71"
+            [(ngModel)]="addCliente.clienteEndereco"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="inputAddress">Bairro</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress"
+            placeholder="Pompeia"
+            [(ngModel)]="addCliente.clienteBairro"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlSelect1">Tipo de Serviço</label>
+          <select [(ngModel)]="addCliente.tipoDeServico" class="form-select" id="floatingSelect" (change)="onServiceChange($event)" >
+            <option value="Instalacao" selected>Instalação</option>
+            <option value="Higienizacao">Higienização</option>
+            <option value="Remocao">Remoção</option>
+            <option value="Revisao">Revisão</option>
+          </select>
+        </div>
+      </main>
+      <footer class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn" style="background: #16425B; color:#fff" (click)="Adcionar()">Adicionar</button>
+
       </footer>
     </div>
   </div>

@@ -44,9 +44,9 @@ export class SearchCustomersComponent implements OnInit {
     nomeCliente: '',
     clienteEndereco: '',
     clienteBairro: '',
-    clienteTelefone: null,
+    telefoneCliente: null,
     tipoDeServico: 'Todos',
-    dataDoAtendimento: null
+    dataDoAtendimento: new Date()
   }
 
   listCliente: Array<ICliente> = [];
@@ -57,9 +57,9 @@ export class SearchCustomersComponent implements OnInit {
     nomeCliente: '',
     clienteEndereco: '',
     clienteBairro: '',
-    clienteTelefone: null,
+    telefoneCliente: null,
     tipoDeServico: 'Instalacao',
-    dataDoAtendimento: null
+    dataDoAtendimento: new Date()
   }
 
 
@@ -96,17 +96,32 @@ export class SearchCustomersComponent implements OnInit {
     }
   }
 
+  updateInsertDate(event) {
+    let data;
+    if (event.target.value == "") {
+      data = null;
+    }
+    else {
+      data = event.target.value;
+      const ano = parseInt(data.substr(0, 4), 10);
+      const mes = parseInt(data.substr(5, 2), 10) - 1;
+      const dia = parseInt(data.substr(8, 2), 10);
+
+      this.filterCliente.dataDoAtendimento = new Date(ano, mes, dia);
+
+    }
+  }
+
   errorMsgInsOrUpd: string;
 
   ValidateInsUpd(){
     this.errorMsgInsOrUpd = "";
-    console.log(this.addCliente.nomeCliente);
 
     if (this.addCliente.nomeCliente === null || this.addCliente.nomeCliente === "" || this.addCliente.nomeCliente === undefined) {
       this.errorMsgInsOrUpd = "Por favor, insira o nome do cliente";
       return false;
     }
-    if (this.addCliente.clienteTelefone == null || this.addCliente.clienteTelefone === undefined) {
+    if (this.addCliente.telefoneCliente == null || this.addCliente.telefoneCliente === undefined) {
       this.errorMsgInsOrUpd = "Por favor, insira o telefone do cliente";
       return false;
     }
@@ -121,8 +136,16 @@ export class SearchCustomersComponent implements OnInit {
     return true;
   }
 
+
+  showMain:boolean = true;
+  showModalInsert(){
+    this.showMain = false;
+  }
+
+
   Adcionar(){
-      console.log(this.addCliente.tipoDeServico);
+      console.log(this.addCliente.telefoneCliente);
+      // console.log(this.addCliente.dataDoAtendimento);
 
 
       if(!this.ValidateInsUpd())
@@ -155,6 +178,10 @@ export class SearchCustomersComponent implements OnInit {
 
       }
 
+
+      verificarTelefone(){
+        console.log(this.addCliente.telefoneCliente)
+      }
 
   Search(){
 
