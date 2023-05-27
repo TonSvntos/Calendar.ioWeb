@@ -20,7 +20,7 @@
 
 <div class="text-center">
   <div class="row align-items-start">
-    <!-- comeco do filtro -->
+    <!--COMECO FILTRO -->
     <div id="filtro">
       <div class="container">
         <h1>Busca de cliente</h1>
@@ -45,13 +45,13 @@
               <td><input class="form-control" type="number" name="" id="" [ngModel]="filterCliente.clienteTelefone"></td>
               <td><input class="form-control" type="text" name="" id="" [ngModel]="filterCliente.clienteEndereco"></td>
               <td><input class="form-control" type="text" name="" id="" [ngModel]="filterCliente.clienteBairro"></td>
-              <td><input class="form-control" type="date" name="" id="" [ngModel]="filterCliente.dataDoAtendimento"></td>
-              <td><select class="form-select" id="floatingSelect" >
-                <option value="Todos" selected>Todos</option>
-                <option>Instalação</option>
-                <option>Higienização</option>
-                <option>Remoção</option>
-                <option>Revisão</option>
+              <td><input class="form-control" type="date" name="" id="" [ngModel]="filterCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateFilterDate($event)"></td>
+              <td><select class="form-select" id="floatingSelect" (change)="onServiceFilterChange($event)">
+                <option value="Todos" selected >Todos</option>
+                <option value="Instalacao"> Instalação</option>
+                <option value="Higienizacao">Higienização</option>
+                <option value="Remocao">Remoção</option>
+                <option value="Revisao">Revisão</option>
               </select></td>
               <td>
                 <button type="button" (click)="Search()" class="btn" style="background-color: #004E64; color: #fff;" tooltip="Search">
@@ -64,8 +64,8 @@
         </table>
     </div>
       <!-- fim do filtro -->
-
-
+<!-- <button (click)="InsertNew()"></button> -->
+    <!-- COMECO TABELA -->
     <div >
       <div class="container">
         <table class="table" >
@@ -83,14 +83,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Marcos Ribeiro</td>
-              <td>991998899</td>
-              <td>Rua Pedro Lessa 1024</td>
-              <td>Aparecida</td>
-              <td>21/05/2023</td>
-              <td>Instalação</td>
+            <tr *ngFor="let item of listCliente">
+              <td>{{item.clienteId}}</td>
+              <td>{{item.nomeCliente}}</td>
+              <td>{{item.clienteTelefone}}</td>
+              <td>{{item.clienteEndereco}}</td>
+              <td>{{item.clienteBairro}}</td>
+              <td>{{item.dataDoAtendimento | date: 'yyyy-MM-dd'}}</td>
+              <td>{{item.tipoDeServico}}</td>
               <td style="text-align: center">
                 <div>
                   <button class="btn" type="button" style="background-color: #004E64; color: white;" title="Update">
@@ -108,5 +108,92 @@
 
 
 
+
+
+
+<!-- Modal -->
+<section
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  style="text-align: left !important"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <header class="modal-header" style="background-color: #16425B; color: #fff;">
+        <h5 class="modal-title" id="exampleModalLabel">Adicionar novo cliente</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </header>
+      <main class="modal-body">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label" style="text-align: left;">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Nome"
+            placeholder="Nome"
+            [ngModel]="addCliente.nomeCliente"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput2" class="form-label"
+            >Telefone</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="(11) 91111-1111"
+            [ngModel]="addCliente.clienteTelefone"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Data de Atendimento</label>
+          <input type="date" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="inputAddress">Endereço</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress"
+            placeholder="Rua 9 de Julho, 23, apto71"
+            [ngModel]="addCliente.clienteEndereco"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="inputAddress">Bairro</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress"
+            placeholder="Pompeia"
+            [ngModel]="addCliente.clienteBairro"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlSelect1">Tipo de Serviço</label>
+          <select [ngModel]="addCliente.tipoDeServico" class="form-select" id="floatingSelect" (change)="onServiceChange($event)" >
+            <option value="Instalacao" selected>Instalação</option>
+            <option value="Higienizacao">Higienização</option>
+            <option value="Remocao">Remoção</option>
+            <option value="Revisao">Revisão</option>
+          </select>
+        </div>
+      </main>
+      <footer class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn" style="background: #16425B; color:#fff" (click)="Adcionar()">Adicionar</button>
+      </footer>
+    </div>
+  </div>
+</section>
 
 

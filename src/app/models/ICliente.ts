@@ -1,4 +1,5 @@
 export interface ICliente{
+  clienteId: number;
   nomeCliente: string;
   clienteTelefone:number;
   clienteEndereco:string;
@@ -6,3 +7,5 @@ export interface ICliente{
   tipoDeServico:string;
   dataDoAtendimento: Date;
 }
+
+
