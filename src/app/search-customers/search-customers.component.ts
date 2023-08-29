@@ -59,7 +59,7 @@ export class SearchCustomersComponent implements OnInit {
     clienteBairro: '',
     telefoneCliente: null,
     tipoDeServico: 'Instalacao',
-    dataDoAtendimento: new Date()
+    dataDoAtendimento: new Date("2023-05-27")
   }
 
 
@@ -162,7 +162,7 @@ export class SearchCustomersComponent implements OnInit {
     clienteBairro: '',
     telefoneCliente: null,
     tipoDeServico: 'Instalacao',
-    dataDoAtendimento: new Date()
+    dataDoAtendimento: new Date("2023-05-27")
   }
 
   Update(){
@@ -218,7 +218,6 @@ export class SearchCustomersComponent implements OnInit {
             }
             else{
               alert('Cliente inserido com sucesso!');
-              this.addCliente = null;
             }
           }
         },

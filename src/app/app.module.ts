@@ -10,6 +10,9 @@ import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ClienteService } from './services/cliente.service';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import  dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
 
 @NgModule({
@@ -22,7 +25,8 @@ import { ScheduleComponent } from './schedule/schedule.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FullCalendarModule
 
   ],
   providers: [

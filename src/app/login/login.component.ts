@@ -31,11 +31,17 @@ export class LoginComponent implements OnInit {
   };
 
 
+   url = 'Calendar.io.com';
+   GoogleChartAPI = 'https://chart.googleapis.com';
+   apiParams = '/chart?cht=qr&chs=400x400&chl=';
+   teste = this.GoogleChartAPI + this.apiParams + encodeURIComponent(this.url);
+
+
   Logar(){
     this.loginservice.Autenticar(this.login).subscribe(
       data => {
         console.log("autenticado");
-        this.router.navigate(['/search']);
+        this.router.navigate(['/schedule']);
       },
       error => {
       alert('Usuario ou senha inválidos');

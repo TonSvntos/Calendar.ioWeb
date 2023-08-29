@@ -7,6 +7,7 @@
     </button>
     <div>
       <div class="navbar-nav">
+        <a class="nav-link" aria-current="page" style="color: #fff" href="/schedule">Agenda</a>
         <a class="nav-link"  style="color: #fff" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Novo cliente</a>
         <a class="nav-link" style="color: #fff;" routerLink="">Sair</a>
       </div>
@@ -18,7 +19,7 @@
   <div class="row align-items-start">
     <!--COMECO FILTRO -->
     <div id="filtro">
-      <div class="container">
+      <div >
         <h1>Busca de cliente</h1>
         <table class="table">
           <thead style="background-color: #004E64; color: white;">
@@ -153,11 +154,11 @@
         <div class="mb-3">
           <label for="exampleFormControlSelect1">Hora</label>
           <select class="form-select" id="floatingSelect"  >
-            <option value="7" selected>07:00</option>
-            <option value="9">09:00</option>
-            <option value="11">11:00</option>
-            <option value="15">15:00</option>
-            <option value="17">17:00</option>
+            <option selected>07:00</option>
+            <option >09:00</option>
+            <option >11:00</option>
+            <option >15:00</option>
+            <option >17:00</option>
 
           </select>
         </div>
