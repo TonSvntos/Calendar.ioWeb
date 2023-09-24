@@ -6,3 +6,13 @@ html, body{
 *{
   font-family: Calibri, Nunito, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+thead
+{
+  background-color: #004E64; color: white; 
+}
+
+.corBotao
+{
+  background-color: #004E64; color: #fff;
+}

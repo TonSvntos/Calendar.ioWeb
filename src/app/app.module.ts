@@ -13,13 +13,14 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import  dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent
     , LoginComponent
-    , SearchCustomersComponent, ScheduleComponent
+    , SearchCustomersComponent, ScheduleComponent, NavBarComponent
   ],
   imports: [
     BrowserModule,

@@ -38,16 +38,18 @@ export class LoginComponent implements OnInit {
 
 
   Logar(){
-    this.loginservice.Autenticar(this.login).subscribe(
-      data => {
-        console.log("autenticado");
-        this.router.navigate(['/schedule']);
-      },
-      error => {
-      alert('Usuario ou senha inválidos');
-      console.log(error);
-      }
-      );
+    // this.loginservice.Autenticar(this.login).subscribe(
+    //   data => {
+    //     console.log("autenticado");
+    //     this.router.navigate(['/schedule']);
+    //   },
+    //   error => {
+    //   alert('Usuario ou senha inválidos');
+    //   console.log(error);
+    //   }
+    //   );
+
+      this.router.navigate(['/schedule']);
     }
 
 }

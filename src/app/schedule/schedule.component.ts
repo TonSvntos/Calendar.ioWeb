@@ -12,14 +12,48 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 })
 export class ScheduleComponent implements OnInit {
 
-
-  ngOnInit(): void {
-  }
-
- calendarOptions: CalendarOptions = {
+  calendarOptions: CalendarOptions = {
+    plugins: [dayGridPlugin],
     initialView: 'dayGridMonth',
-    plugins: [dayGridPlugin]
+    weekends: true,
+    events: [
+      { title: 'Meeting', start: new Date() }
+    ]
   };
 
+  ngOnInit(): void {
+    this.displayMonth = this.currentMonth
+  }
+  currentDate: Date = new Date();
+  currentMonth: Date = new Date();
+  displayMonth: any = null;
+
+  weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  get daysInMonth(): number[] {
+    const days = [];
+    const year = this.currentMonth.getFullYear();
+    const month = this.currentMonth.getMonth();
+
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      days.push(day);
+    }
+
+    return days;
+  }
+
+  prevMonth() {
+    this.displayMonth = this.currentMonth.setMonth(this.currentMonth.getMonth() - 1);
+  }
+
+  nextMonth() {
+    this.displayMonth = this.currentMonth.setMonth(this.currentMonth.getMonth() + 1);
+  }
+
+  teste(day: any){
+    console.log(day);
+  }
 
 }

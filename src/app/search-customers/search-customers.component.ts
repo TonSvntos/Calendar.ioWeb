@@ -46,7 +46,11 @@ export class SearchCustomersComponent implements OnInit {
     clienteBairro: '',
     telefoneCliente: null,
     tipoDeServico: 'Todos',
-    dataDoAtendimento: new Date()
+    dataDoAtendimento: new Date(),
+    cep: 0,
+    numero: 0,
+    complemento: '',
+    cidade: ''
   }
 
   listCliente: Array<ICliente> = [];
@@ -59,7 +63,11 @@ export class SearchCustomersComponent implements OnInit {
     clienteBairro: '',
     telefoneCliente: null,
     tipoDeServico: 'Instalacao',
-    dataDoAtendimento: new Date("2023-05-27")
+    dataDoAtendimento: new Date("2023-05-27"),
+    cep: 0,
+    numero: 0,
+    complemento: '',
+    cidade: ''
   }
 
 
@@ -162,7 +170,11 @@ export class SearchCustomersComponent implements OnInit {
     clienteBairro: '',
     telefoneCliente: null,
     tipoDeServico: 'Instalacao',
-    dataDoAtendimento: new Date("2023-05-27")
+    dataDoAtendimento: new Date("2023-05-27"),
+    cep: 0,
+    numero: 0,
+    complemento: '',
+    cidade: ''
   }
 
   Update(){
@@ -260,5 +272,34 @@ export class SearchCustomersComponent implements OnInit {
         }
         );
       }
+
+      async onFocusOutEvent($event){
+        console.log('teste')
+        // let mensagemErro = document.getElementById('erro');
+
+        // mensagemErro.innerHTML = ''; //temos que inicializar como vazio se nao nao conseguimos escreve-la depois
+
+        let cep = this.addCliente.cep;
+
+        try{
+
+        let consultaCEP = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        let consultaCEPConvertida = await consultaCEP.json();
+        if(consultaCEPConvertida.erro){
+            throw Error('CEP inválido');
+        }
+
+        this.addCliente.cidade = consultaCEPConvertida.localidade;
+        this.addCliente.clienteEndereco = consultaCEPConvertida.logradouro;
+        this.addCliente.clienteBairro = consultaCEPConvertida.bairro;
+
+
+        } catch (erro){
+            // mensagemErro.innerHTML = '<p>CEP inválido! Tente novamente</p>';
+            console.log(erro);
+        }
+
+    }
+
 }
 

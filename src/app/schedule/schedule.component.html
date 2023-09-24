@@ -18,11 +18,22 @@
     </div>
   </nav>
 
-  <full-calendar
-  *ngIf="calendarOptions"
-  #fullcalendar
-  [options]="calendarOptions"
-></full-calendar>
+
+  <!-- <full-calendar [options]="calendarOptions"></full-calendar> -->
+ <div class="calendar">
+  <div class="header">
+    <button class="btn corBotao" (click)="prevMonth()">&#9664;</button>
+    <h2>{{ displayMonth | date: 'MMMM yyyy' }}</h2>
+    <button class="btn corBotao" (click)="nextMonth()">&#9654;</button>
+  </div>
+  <div class="weekdays">
+    <div *ngFor="let day of weekdays" class="day">{{ day }}</div>
+  </div>
+  <div class="days">
+    <div *ngFor="let day of daysInMonth" class="day" (click)="teste(day)">{{ day }}</div>
+  </div>
+</div>
+
 
 </body>
 <!-- end schedule -->
@@ -68,8 +79,8 @@
           <input
             type="number"
             class="form-control"
-            id="exampleFormControlInput1"
-            placeholder="(11) 91111-1111)"
+            id="telefone"
+            placeholder="(11) 91111-1111"
           />
         </div>
         <div class="mb-3">
@@ -77,20 +88,20 @@
           <input type="date" class="form-control" />
         </div>
         <div class="mb-3">
-          <label for="inputAddress">Endereço</label>
+          <label for="endereco">Endereço</label>
           <input
             type="text"
             class="form-control"
-            id="inputAddress"
+            id="endereco"
             placeholder="Rua 9 de Julho, 23, apto71"
           />
         </div>
         <div class="mb-3">
-          <label for="inputAddress">Bairro</label>
+          <label for="bairro">Bairro</label>
           <input
             type="text"
             class="form-control"
-            id="inputAddress"
+            id="bairro"
             placeholder="Pompeia"
           />
         </div>
