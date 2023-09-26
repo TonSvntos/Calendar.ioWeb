@@ -1,6 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root{
+  --cor-fundo: #1d1d1d;
+  --cor-texto: #dedede;
+  --cor-primaria: #004E64;
+}
+
 html, body{
   height: 100%;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
 }
 
 *{
@@ -9,10 +18,15 @@ html, body{
 
 thead
 {
-  background-color: #004E64; color: white; 
+  background-color: var(--cor-primaria); color: var(--cor-texto);
 }
 
 .corBotao
 {
-  background-color: #004E64; color: #fff;
+  background-color: var(--cor-primaria); color:var(--cor-texto);
+}
+
+.light{
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
 }
