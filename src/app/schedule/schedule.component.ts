@@ -164,9 +164,28 @@ export class ScheduleComponent implements OnInit {
     ]
   };
 
+  body: HTMLElement;
   ngOnInit(): void {
     this.displayMonth = this.currentMonth
+    this.body = document.querySelector('#body');
+
   }
+
+  darkmode : boolean = false;
+  togleMode() {
+
+    if (!this.darkmode) {
+      this.body.classList.remove('dark-mode');
+    } else {
+      this.body.classList.add('dark-mode');
+    }
+    this.darkmode = !this.darkmode;
+
+
+    // this.darkmode = !this.darkmode;
+  }
+
+
   currentDate: Date = new Date();
   currentMonth: Date = new Date();
   displayMonth: any = null;

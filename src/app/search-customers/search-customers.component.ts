@@ -3,39 +3,32 @@ import { Component, OnInit } from '@angular/core';
 import { ICliente } from '../models/ICliente';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-search-customers',
   templateUrl: './search-customers.component.html',
-  styleUrls: ['./search-customers.component.css']
+  styleUrls: ['./search-customers.component.css'],
 })
 export class SearchCustomersComponent implements OnInit {
+  constructor(private ClienteService: ClienteService, private router: Router) {}
 
-  constructor(
-    private ClienteService: ClienteService,
-    private router: Router
-    ) { }
-
+  body: HTMLElement;
   ngOnInit(): void {
+    this.body = document.querySelector('#body');
   }
 
   onServiceFilterChange(event) {
     const selectElement = event.target;
     const optionIndex = selectElement.selectedIndex;
     if (optionIndex == 0) {
-      this.filterCliente.tipoDeServico = "Todos";
-    }
-    else if (optionIndex == 1) {
-      this.filterCliente.tipoDeServico = "Instalacao";
-    }
-    else if (optionIndex == 2) {
-      this.filterCliente.tipoDeServico = "Higienizacao";
-    }
-    else if (optionIndex == 3) {
-      this.filterCliente.tipoDeServico = "Remocao";
-    }
-    else {
-      this.filterCliente.tipoDeServico = "Revisao";
+      this.filterCliente.tipoDeServico = 'Todos';
+    } else if (optionIndex == 1) {
+      this.filterCliente.tipoDeServico = 'Instalacao';
+    } else if (optionIndex == 2) {
+      this.filterCliente.tipoDeServico = 'Higienizacao';
+    } else if (optionIndex == 3) {
+      this.filterCliente.tipoDeServico = 'Remocao';
+    } else {
+      this.filterCliente.tipoDeServico = 'Revisao';
     }
   }
 
@@ -50,11 +43,10 @@ export class SearchCustomersComponent implements OnInit {
     cep: 0,
     numero: 0,
     complemento: '',
-    cidade: ''
-  }
+    cidade: '',
+  };
 
   listCliente: Array<ICliente> = [];
-
 
   addCliente: ICliente = {
     clienteId: 0,
@@ -63,98 +55,98 @@ export class SearchCustomersComponent implements OnInit {
     clienteBairro: '',
     telefoneCliente: null,
     tipoDeServico: 'Instalacao',
-    dataDoAtendimento: new Date("2023-05-27"),
+    dataDoAtendimento: new Date('2023-05-27'),
     cep: 0,
     numero: 0,
     complemento: '',
-    cidade: ''
-  }
-
+    cidade: '',
+  };
 
   onServiceChange(event) {
     const selectElement = event.target;
     const optionIndex = selectElement.selectedIndex;
     if (optionIndex == 0) {
-      this.addCliente.tipoDeServico = "Instalacao";
-    }
-    else if (optionIndex == 1) {
-      this.addCliente.tipoDeServico = "Higienizacao";
-    }
-    else if (optionIndex == 2) {
-      this.addCliente.tipoDeServico = "Remocao";
-    }
-    else {
-      this.addCliente.tipoDeServico = "Revisao";
+      this.addCliente.tipoDeServico = 'Instalacao';
+    } else if (optionIndex == 1) {
+      this.addCliente.tipoDeServico = 'Higienizacao';
+    } else if (optionIndex == 2) {
+      this.addCliente.tipoDeServico = 'Remocao';
+    } else {
+      this.addCliente.tipoDeServico = 'Revisao';
     }
   }
 
   updateFilterDate(event) {
     let data;
-    if (event.target.value == "") {
+    if (event.target.value == '') {
       data = null;
-    }
-    else {
+    } else {
       data = event.target.value;
       const ano = parseInt(data.substr(0, 4), 10);
       const mes = parseInt(data.substr(5, 2), 10) - 1;
       const dia = parseInt(data.substr(8, 2), 10);
 
       this.filterCliente.dataDoAtendimento = new Date(ano, mes, dia);
-
     }
   }
 
   updateInsertDate(event) {
     let data;
-    if (event.target.value == "") {
+    if (event.target.value == '') {
       data = null;
-    }
-    else {
+    } else {
       data = event.target.value;
       const ano = parseInt(data.substr(0, 4), 10);
       const mes = parseInt(data.substr(5, 2), 10) - 1;
       const dia = parseInt(data.substr(8, 2), 10);
 
       this.filterCliente.dataDoAtendimento = new Date(ano, mes, dia);
-
     }
   }
 
   errorMsgInsOrUpd: string;
 
-  ValidateInsUpd(item:ICliente){
-    this.errorMsgInsOrUpd = "";
+  ValidateInsUpd(item: ICliente) {
+    this.errorMsgInsOrUpd = '';
 
-    if (item.nomeCliente === null || item.nomeCliente === "" || item.nomeCliente === undefined) {
-      this.errorMsgInsOrUpd = "Por favor, insira o nome do cliente";
+    if (
+      item.nomeCliente === null ||
+      item.nomeCliente === '' ||
+      item.nomeCliente === undefined
+    ) {
+      this.errorMsgInsOrUpd = 'Por favor, insira o nome do cliente';
       return false;
     }
     if (item.telefoneCliente == null || item.telefoneCliente === undefined) {
-      this.errorMsgInsOrUpd = "Por favor, insira o telefone do cliente";
+      this.errorMsgInsOrUpd = 'Por favor, insira o telefone do cliente';
       return false;
     }
-    if (item.clienteEndereco === null || item.clienteEndereco === "" || item.clienteEndereco === undefined) {
-      this.errorMsgInsOrUpd = "Por favor, insira o endereço do cliente";
+    if (
+      item.clienteEndereco === null ||
+      item.clienteEndereco === '' ||
+      item.clienteEndereco === undefined
+    ) {
+      this.errorMsgInsOrUpd = 'Por favor, insira o endereço do cliente';
       return false;
     }
-    if (item.clienteBairro === null || item.clienteBairro === "" || item.clienteBairro === undefined) {
-      this.errorMsgInsOrUpd = "Por favor, insira um bairro";
+    if (
+      item.clienteBairro === null ||
+      item.clienteBairro === '' ||
+      item.clienteBairro === undefined
+    ) {
+      this.errorMsgInsOrUpd = 'Por favor, insira um bairro';
       return false;
     }
     return true;
   }
 
-
-  showMain:boolean = true;
-  showModalInsert(){
+  showMain: boolean = true;
+  showModalInsert() {
     this.showMain = false;
   }
 
-
   FindClienteList(id: number): ICliente {
-
-
-    let findGroup: ICliente = this.listCliente.find(x => x.clienteId === id);
+    let findGroup: ICliente = this.listCliente.find((x) => x.clienteId === id);
 
     if (findGroup != null) {
       this.updCliente = findGroup;
@@ -170,136 +162,125 @@ export class SearchCustomersComponent implements OnInit {
     clienteBairro: '',
     telefoneCliente: null,
     tipoDeServico: 'Instalacao',
-    dataDoAtendimento: new Date("2023-05-27"),
+    dataDoAtendimento: new Date('2023-05-27'),
     cep: 0,
     numero: 0,
     complemento: '',
-    cidade: ''
-  }
+    cidade: '',
+  };
 
-  Update(){
-
+  Update() {
     // this.updCliente = this.FindClienteList(id);
 
-    if(!this.ValidateInsUpd(this.updCliente))
-      {
-        alert(this.errorMsgInsOrUpd);
-        return false;
-      }
+    if (!this.ValidateInsUpd(this.updCliente)) {
+      alert(this.errorMsgInsOrUpd);
+      return false;
+    }
 
-      this.ClienteService.Atualizar(this.updCliente).subscribe(
-        data => {
-          if(data !== undefined)
-          {
-            if(data.friendlyErrorMessage !== null)
-            {
-              alert(data.friendlyErrorMessage);
-
-            }
-            else{
-              alert('Cliente atualizado com sucesso!');
-            }
+    this.ClienteService.Atualizar(this.updCliente).subscribe(
+      (data) => {
+        if (data !== undefined) {
+          if (data.friendlyErrorMessage !== null) {
+            alert(data.friendlyErrorMessage);
+          } else {
+            alert('Cliente atualizado com sucesso!');
           }
-        },
-        error => {
+        }
+      },
+      (error) => {
         alert('Erro inesperado');
         console.log(error);
-        }
-      );
+      }
+    );
 
-      return true;
+    return true;
   }
 
-  Adcionar(){
+  Adcionar() {
+    if (!this.ValidateInsUpd(this.addCliente)) {
+      alert(this.errorMsgInsOrUpd);
+      return false;
+    }
 
-
-      if(!this.ValidateInsUpd(this.addCliente))
-      {
-        alert(this.errorMsgInsOrUpd);
-        return false;
-      }
-
-      this.ClienteService.Inserir(this.addCliente).subscribe(
-        data => {
-          if(data !== undefined)
-          {
-            if(data.friendlyErrorMessage !== null)
-            {
-              alert(data.friendlyErrorMessage);
-
-            }
-            else{
-              alert('Cliente inserido com sucesso!');
-            }
+    this.ClienteService.Inserir(this.addCliente).subscribe(
+      (data) => {
+        if (data !== undefined) {
+          if (data.friendlyErrorMessage !== null) {
+            alert(data.friendlyErrorMessage);
+          } else {
+            alert('Cliente inserido com sucesso!');
           }
-        },
-        error => {
+        }
+      },
+      (error) => {
         alert('Erro inesperado');
         console.log(error);
-        }
-      );
-       return true;
-
       }
+    );
+    return true;
+  }
 
+  buscado: boolean = false;
 
-      buscado: boolean = false;
-
-  Search(){
-
-    if(this.filterCliente.tipoDeServico === "Todos")
-    {
+  Search() {
+    if (this.filterCliente.tipoDeServico === 'Todos') {
       this.filterCliente.tipoDeServico = null;
     }
 
-      this.ClienteService.Buscar(this.filterCliente).subscribe(
-        data => {
-          if(data !== undefined)
-          {
-            if(data.friendlyErrorMessage != null)
-            {
-              alert(data.friendlyErrorMessage);
-            }
-            else{
-              this.listCliente = data.data as Array<ICliente>;
-              this.buscado = true;
-            }
+    this.ClienteService.Buscar(this.filterCliente).subscribe(
+      (data) => {
+        if (data !== undefined) {
+          if (data.friendlyErrorMessage != null) {
+            alert(data.friendlyErrorMessage);
+          } else {
+            this.listCliente = data.data as Array<ICliente>;
+            this.buscado = true;
           }
-        },
-        error => {
+        }
+      },
+      (error) => {
         alert('Erro inesperado');
         console.log(error);
-        }
-        );
+      }
+    );
+  }
+
+  async onFocusOutEvent($event) {
+    console.log('teste');
+    // let mensagemErro = document.getElementById('erro');
+
+    // mensagemErro.innerHTML = ''; //temos que inicializar como vazio se nao nao conseguimos escreve-la depois
+
+    let cep = this.addCliente.cep;
+
+    try {
+      let consultaCEP = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      let consultaCEPConvertida = await consultaCEP.json();
+      if (consultaCEPConvertida.erro) {
+        throw Error('CEP inválido');
       }
 
-      async onFocusOutEvent($event){
-        console.log('teste')
-        // let mensagemErro = document.getElementById('erro');
-
-        // mensagemErro.innerHTML = ''; //temos que inicializar como vazio se nao nao conseguimos escreve-la depois
-
-        let cep = this.addCliente.cep;
-
-        try{
-
-        let consultaCEP = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-        let consultaCEPConvertida = await consultaCEP.json();
-        if(consultaCEPConvertida.erro){
-            throw Error('CEP inválido');
-        }
-
-        this.addCliente.cidade = consultaCEPConvertida.localidade;
-        this.addCliente.clienteEndereco = consultaCEPConvertida.logradouro;
-        this.addCliente.clienteBairro = consultaCEPConvertida.bairro;
-
-
-        } catch (erro){
-            // mensagemErro.innerHTML = '<p>CEP inválido! Tente novamente</p>';
-            console.log(erro);
-        }
-
+      this.addCliente.cidade = consultaCEPConvertida.localidade;
+      this.addCliente.clienteEndereco = consultaCEPConvertida.logradouro;
+      this.addCliente.clienteBairro = consultaCEPConvertida.bairro;
+    } catch (erro) {
+      // mensagemErro.innerHTML = '<p>CEP inválido! Tente novamente</p>';
+      console.log(erro);
     }
+  }
 
+  darkmode: boolean = false;
+
+  togleMode() {
+
+    if (!this.darkmode) {
+      this.body.classList.remove('dark-mode');
+    } else {
+      this.body.classList.add('dark-mode');
+    }
+    this.darkmode = !this.darkmode;
+
+
+    // this.darkmode = !this.darkmode;
+  }
 }
-
