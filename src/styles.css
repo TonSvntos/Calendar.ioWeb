@@ -3,18 +3,18 @@
 :root{
   --cor-fundo: #ededed;
   --cor-texto:  #1d1d1d;
-  --cor-primaria: #004E64;
+  --cor-primaria: #4DD1A5 ;
+  /* ou esse 27C28C */
+
+  --cor-secundaria: #ff2b70;
   --label-icon: url("https://caelum-online-public.s3.amazonaws.com/1369-alura-mais-dark-mode/lua.png");
-  --trono-img: url("https://caelum-online-public.s3.amazonaws.com/1369-alura-mais-dark-mode/trono-preto.png");
 }
 
 .dark-mode {
   --cor-fundo: #333;
   --cor-texto: #ffffff;
   --label-icon: url("https://caelum-online-public.s3.amazonaws.com/1369-alura-mais-dark-mode/sol.png");
-  --trono-img: url("https://caelum-online-public.s3.amazonaws.com/1369-alura-mais-dark-mode/trono-branco.png");
 }
-
 
 html, body{
   height: 100%;
@@ -26,7 +26,7 @@ html, body{
   font-family: Calibri, Nunito, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-thead
+thead, header
 {
   background-color: var(--cor-primaria); color: white;
 }
@@ -36,3 +36,8 @@ thead
   background-color: var(--cor-primaria); color:white;
 }
 
+.modal-content
+{
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}

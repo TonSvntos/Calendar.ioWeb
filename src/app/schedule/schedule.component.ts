@@ -119,7 +119,7 @@ export class ScheduleComponent implements OnInit {
       console.log(error);
       }
     );
-     return true;
+    return true;
 
     }
 
@@ -164,10 +164,15 @@ export class ScheduleComponent implements OnInit {
     ]
   };
 
+  iconeLua: string = 'https://caelum-online-public.s3.amazonaws.com/1369-alura-mais-dark-mode/lua.png';
+
   body: HTMLElement;
+  modal: HTMLElement;
+
   ngOnInit(): void {
     this.displayMonth = this.currentMonth
     this.body = document.querySelector('#body');
+    this.modal = document.querySelector('#modal-content');
 
   }
 
@@ -176,8 +181,12 @@ export class ScheduleComponent implements OnInit {
 
     if (!this.darkmode) {
       this.body.classList.remove('dark-mode');
+      this.modal.classList.remove('dark-mode');
+
     } else {
       this.body.classList.add('dark-mode');
+      this.modal.classList.add('dark-mode');
+
     }
     this.darkmode = !this.darkmode;
 
