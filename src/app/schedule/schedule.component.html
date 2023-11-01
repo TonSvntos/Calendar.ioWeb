@@ -17,9 +17,11 @@
     </div>
   </nav>
 
+<div style="width:50%; margin-left: 500px;">
+  <full-calendar [options]="calendarOptions" ></full-calendar>
 
-  <!-- <full-calendar [options]="calendarOptions"></full-calendar> -->
- <div class="calendar">
+</div>
+ <!-- <div class="calendar">
   <div class="header">
     <button class="btn corBotao" (click)="prevMonth()">&#9664;</button>
     <h2>{{ displayMonth | date: 'MMMM yyyy' }}</h2>
@@ -31,7 +33,7 @@
   <tbody class="days">
     <div *ngFor="let day of daysInMonth" class="day" (click)="teste(day)">{{ day }}</div>
   </tbody>
-</div>
+</div> -->
 
 
 </body>

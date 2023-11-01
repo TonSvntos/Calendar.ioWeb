@@ -1,11 +1,9 @@
-body{ height: 100%}
 
-.service{ background: #062837 } /*cor da barra*/
 
 .nav-link{ color: #fff; } /*cor da letra na barra*/
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif; height: 100%
 }
 .calendar {
   text-align: center;
@@ -45,4 +43,8 @@ body {
 
 .days .day:hover {
   background-color: #f0f0f0;
+}
+
+ a{
+  color: #fff !important;
 }

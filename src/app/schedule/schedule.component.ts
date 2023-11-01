@@ -16,6 +16,15 @@ export class ScheduleComponent implements OnInit {
 
 
 
+  calendarOptions: CalendarOptions = {
+    plugins: [dayGridPlugin],
+    initialView: 'dayGridMonth',
+    weekends: true,
+    events: [
+      { title: 'Meeting', start: new Date() }
+    ]
+  };
+
 
   constructor(
     private ClienteService: ClienteService,
@@ -47,7 +56,6 @@ export class ScheduleComponent implements OnInit {
   }
 
   async onFocusOutEvent($event){
-    console.log('teste')
     // let mensagemErro = document.getElementById('erro');
 
     // mensagemErro.innerHTML = ''; //temos que inicializar como vazio se nao nao conseguimos escreve-la depois
@@ -155,14 +163,7 @@ export class ScheduleComponent implements OnInit {
   }
 
 
-  calendarOptions: CalendarOptions = {
-    plugins: [dayGridPlugin],
-    initialView: 'dayGridMonth',
-    weekends: true,
-    events: [
-      { title: 'Meeting', start: new Date() }
-    ]
-  };
+
 
   iconeLua: string = 'https://caelum-online-public.s3.amazonaws.com/1369-alura-mais-dark-mode/lua.png';
 
