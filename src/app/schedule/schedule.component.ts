@@ -215,7 +215,7 @@ export class ScheduleComponent implements OnInit {
   body: HTMLElement;
   modal: HTMLElement;
 
-  darkmode: boolean = false;
+  darkmode: boolean = true;
   togleMode() {
     if (!this.darkmode) {
       this.body.classList.remove('dark-mode');

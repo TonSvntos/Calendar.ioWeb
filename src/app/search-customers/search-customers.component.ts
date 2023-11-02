@@ -16,6 +16,9 @@ export class SearchCustomersComponent implements OnInit {
     this.body = document.querySelector('#body');
   }
 
+
+  today = new Date();
+
   onServiceFilterChange(event) {
     const selectElement = event.target;
     const optionIndex = selectElement.selectedIndex;
@@ -55,7 +58,15 @@ export class SearchCustomersComponent implements OnInit {
     clienteBairro: '',
     telefoneCliente: null,
     tipoDeServico: 'Instalacao',
-    dataDoAtendimento: new Date('2023-05-27'),
+    dataDoAtendimento: new Date(
+      this.today.getFullYear(),
+      this.today.getMonth(),
+      this.today.getDate(),
+      0,
+      0,
+      0,
+      0
+    ),
     cep: 0,
     numero: 0,
     complemento: '',
@@ -155,6 +166,7 @@ export class SearchCustomersComponent implements OnInit {
     return this.updCliente;
   }
 
+
   updCliente: ICliente = {
     clienteId: 0,
     nomeCliente: '',
@@ -162,7 +174,15 @@ export class SearchCustomersComponent implements OnInit {
     clienteBairro: '',
     telefoneCliente: null,
     tipoDeServico: 'Instalacao',
-    dataDoAtendimento: new Date('2023-05-27'),
+    dataDoAtendimento: new Date(
+      this.today.getFullYear(),
+      this.today.getMonth(),
+      this.today.getDate(),
+      0,
+      0,
+      0,
+      0
+    ),
     cep: 0,
     numero: 0,
     complemento: '',
@@ -201,6 +221,9 @@ export class SearchCustomersComponent implements OnInit {
       alert(this.errorMsgInsOrUpd);
       return false;
     }
+
+    // console.log('erro na controller')
+    console.log(this.addCliente.cep)
 
     this.ClienteService.Inserir(this.addCliente).subscribe(
       (data) => {
@@ -246,7 +269,6 @@ export class SearchCustomersComponent implements OnInit {
   }
 
   async onFocusOutEvent($event) {
-    console.log('teste');
     // let mensagemErro = document.getElementById('erro');
 
     // mensagemErro.innerHTML = ''; //temos que inicializar como vazio se nao nao conseguimos escreve-la depois
@@ -269,17 +291,15 @@ export class SearchCustomersComponent implements OnInit {
     }
   }
 
-  darkmode: boolean = false;
+  darkmode: boolean = true;
 
   togleMode() {
-
     if (!this.darkmode) {
       this.body.classList.remove('dark-mode');
     } else {
       this.body.classList.add('dark-mode');
     }
     this.darkmode = !this.darkmode;
-
 
     // this.darkmode = !this.darkmode;
   }

@@ -15,6 +15,7 @@ export class ClienteService {
   constructor(private http: HttpClient) { }
 
   Buscar(item: ICliente): Observable<IResult>{
+    
     return <Observable<IResult>>this.http.post('http://localhost:57239/api/Clientes/ListClientes' , item);
   }
 
@@ -23,7 +24,7 @@ export class ClienteService {
   }
 
   Atualizar(item: ICliente): Observable<any>{
-    return <Observable<IResult>>this.http.post('http://localhost:57239/api/Clientes/UpdateCliente' , item);
+    return <Observable<IResult>>this.http.put('http://localhost:57239/api/Clientes/UpdateCliente' , item);
   }
 
   GetAll(): Observable<IResult>{

@@ -1,4 +1,4 @@
-<body id="body" class="dark-mode">
+<body id="body" >
   <nav class="navbar navbar-expand-lg" style="background-color: var(--cor-primaria);" >
     <div class="container-fluid">
       <img (click)="togleMode()"[hidden]="!darkmode" src="{{ iconeLua }}"/>
@@ -96,6 +96,7 @@
             id="inputCEP"
             placeholder="11001001"
             [(ngModel)]="addCliente.cep"
+
             (focusout)="onFocusOutEvent($event)"
           />
         </div>
@@ -126,6 +127,8 @@
             class="form-control"
             id="inputNumero"
             placeholder="106"
+            [(ngModel)]="addCliente.numero"
+
 
           />
         </div>
@@ -136,6 +139,8 @@
             class="form-control"
             id="inputComplemento"
             placeholder="bloco B apto71"
+            [(ngModel)]="addCliente.complemento"
+
 
           />
         </div>

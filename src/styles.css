@@ -31,6 +31,11 @@ thead, header
   background-color: var(--cor-primaria); color: white;
 }
 
+td{
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
 .corBotao
 {
   background-color: var(--cor-primaria); color:white;
@@ -40,4 +45,8 @@ thead, header
 {
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
+}
+
+.fc-button-primary{
+  background-color: var(--cor-secundaria) !important;
 }
