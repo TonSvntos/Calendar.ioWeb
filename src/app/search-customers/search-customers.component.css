@@ -9,3 +9,8 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+td{
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}

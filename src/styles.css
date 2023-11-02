@@ -31,10 +31,7 @@ thead, header
   background-color: var(--cor-primaria); color: white;
 }
 
-td{
-  background-color: var(--cor-fundo);
-  color: var(--cor-texto);
-}
+
 
 .corBotao
 {
