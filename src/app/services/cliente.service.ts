@@ -25,4 +25,8 @@ export class ClienteService {
   Atualizar(item: ICliente): Observable<any>{
     return <Observable<IResult>>this.http.post('http://localhost:57239/api/Clientes/UpdateCliente' , item);
   }
+
+  GetAll(): Observable<IResult>{
+    return <Observable<IResult>>this.http.get('http://localhost:57239/api/Clientes/');
+  }
 }
