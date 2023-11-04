@@ -155,7 +155,7 @@
         <div class="mb-3 col-6">
           <label for="inputCEP">CEP</label>
           <input
-            type="text"
+            type="number"
             class="form-control"
             id="inputCEP"
             placeholder="11001001"
@@ -186,10 +186,12 @@
         <div class="mb-3 col-6">
           <label for="inputNumero">Número</label>
           <input
-            type="text"
+            type="number"
             class="form-control"
             id="inputNumero"
             placeholder="106"
+            [(ngModel)]="addCliente.numero"
+
 
           />
         </div>
@@ -200,6 +202,7 @@
             class="form-control"
             id="inputComplemento"
             placeholder="bloco B apto71"
+            [(ngModel)]="addCliente.complemento"
 
           />
         </div>
@@ -284,10 +287,11 @@
         <div class="mb-3 col-6">
           <label for="inputCEP">CEP</label>
           <input
-            type="text"
+            type="number"
             class="form-control"
             id="inputCEP"
             placeholder="11001001"
+            [(ngModel)]="updCliente.cep"
             (focusout)="onFocusOutEvent($event)"
           />
         </div>
@@ -305,10 +309,11 @@
         <div class="mb-3 col-6">
           <label for="inputNumero">Número</label>
           <input
-            type="text"
+            type="number"
             class="form-control"
             id="inputNumero"
             placeholder="106"
+            [(ngModel)]="updCliente.numero"
 
 
           />
@@ -320,6 +325,8 @@
             class="form-control"
             id="inputComplemento"
             placeholder="bloco B apto71"
+            [(ngModel)]="updCliente.complemento"
+
 
 
 
