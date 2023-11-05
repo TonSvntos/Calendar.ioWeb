@@ -67,8 +67,8 @@ export class SearchCustomersComponent implements OnInit {
       0,
       0
     ),
-    cep: 0,
-    numero: 0,
+    cep: null,
+    numero: null,
     complemento: '',
     cidade: '',
   };
@@ -183,8 +183,8 @@ export class SearchCustomersComponent implements OnInit {
       0,
       0
     ),
-    cep: 0,
-    numero: 0,
+    cep: null,
+    numero: null,
     complemento: '',
     cidade: '',
   };

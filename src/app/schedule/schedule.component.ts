@@ -6,6 +6,7 @@ import { ICliente } from '../models/ICliente';
 import { CalendarOptions } from '@fullcalendar/core'; // useful for typechecking
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { ClienteService } from '../services/cliente.service';
+import ptLocale from '@fullcalendar/core/locales/pt-br';
 
 @Component({
   selector: 'app-schedule',
@@ -48,6 +49,13 @@ export class ScheduleComponent implements OnInit {
               initialView: 'dayGridMonth',
               weekends: true,
               events: eventFromApiPush,
+              buttonText: {
+                today:  'Hoje',
+                month:  'Mes',
+                week:   'Semana',
+                day:    'Dia',
+                list:   'Lista'
+              }
             };
           }
         }
@@ -67,6 +75,8 @@ export class ScheduleComponent implements OnInit {
       weekends: true,
       events: null,
     };
+
+    this.calendarOptions.locales = [ { code: 'pt-br' } ];
 
 
 

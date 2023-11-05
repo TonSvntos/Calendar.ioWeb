@@ -72,7 +72,10 @@
               <th scope="col">Nome</th>
               <th scope="col">Telefone</th>
               <th scope="col">Endereço</th>
+              <th scope="col">Numero</th>
+              <th scope="col">Complemento</th>
               <th scope="col">Bairro</th>
+              <th scope="col">Cidade</th>
               <th scope="col">Data do serviço</th>
               <th scope="col">Tipo de Serviço</th>
               <th scope="col">Editar</th>
@@ -85,7 +88,10 @@
               <td>{{item.nomeCliente}}</td>
               <td>{{item.telefoneCliente}}</td>
               <td>{{item.clienteEndereco}}</td>
+              <td>{{item.numero}}</td>
+              <td>{{item.complemento}}</td>
               <td>{{item.clienteBairro}}</td>
+              <td>{{item.cidade}}</td>
               <td>{{item.dataDoAtendimento | date: 'dd/MM/yyyy'}}</td>
               <td>{{item.tipoDeServico}}</td>
               <td style="text-align: center">
@@ -144,13 +150,15 @@
           <input
             type="number"
             class="form-control"
+            maxlength="11"
+
             id="telefone"
             [(ngModel)]="addCliente.telefoneCliente"
           />
         </div>
         <div class="mb-3 col-6">
           <label class="form-label">Data de Atendimento</label>
-          <input type="date"  [ngModel]="addCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateInsertDate($event)" class="form-control" />
+          <input type="datetime-local"  [ngModel]="addCliente.dataDoAtendimento | date: 'yyyy-MM-dd h:mm:ss'" (change)="updateInsertDate($event)" class="form-control" />
         </div>
         <div class="mb-3 col-6">
           <label for="inputCEP">CEP</label>
@@ -179,7 +187,7 @@
             type="text"
             class="form-control"
             id="inputAddress"
-            placeholder="Rua 9 de Julho, 23, apto71"
+            placeholder="Rua 9 de Julho"
             [(ngModel)]="addCliente.clienteEndereco"
           />
         </div>
@@ -206,7 +214,22 @@
 
           />
         </div>
-        <div class="mb-3">
+        <div class="mb-3 col-6">
+          <label for="inputComplemento">Cidade</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputComplemento"
+            placeholder="Santos"
+            [(ngModel)]="addCliente.cidade"
+
+
+
+
+          />
+        </div>
+
+        <div class="mb-3 col-6">
           <label for="exampleFormControlSelect1">Tipo de Serviço</label>
           <select [(ngModel)]="addCliente.tipoDeServico" class="form-select" id="floatingSelect" (change)="onServiceChange($event)" >
             <option value="Instalacao" selected>Instalação</option>
@@ -264,7 +287,8 @@
             >Telefone</label
           >
           <input
-            type="number"
+            type="tel"
+            maxlength="11"
             class="form-control"
             id="exampleFormControlInput1"
             [(ngModel)]="updCliente.telefoneCliente"
@@ -272,7 +296,7 @@
         </div>
         <div class="mb-3 col-6">
           <label class="form-label">Data de Atendimento</label>
-          <input type="date"  [ngModel]="updCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateInsertDate($event)" class="form-control" />
+          <input type="datetime-local"  [ngModel]="updCliente.dataDoAtendimento | date: 'yyyy-MM-dd h:mm'" (change)="updateInsertDate($event)" class="form-control" />
         </div>
         <div class="mb-3">
           <label for="inputAddress">Endereço</label>
@@ -290,6 +314,7 @@
             type="number"
             class="form-control"
             id="inputCEP"
+            maxlength="8"
             placeholder="11001001"
             [(ngModel)]="updCliente.cep"
             (focusout)="onFocusOutEvent($event)"
@@ -332,9 +357,23 @@
 
           />
         </div>
+        <div class="mb-3 col-6">
+          <label for="inputComplemento">Cidade</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputComplemento"
+            placeholder="Santos"
+            [(ngModel)]="updCliente.cidade"
 
 
-        <div class="mb-3">
+
+
+          />
+        </div>
+
+
+        <div class="mb-3 col-6">
           <label for="exampleFormControlSelect1">Tipo de Serviço</label>
           <select [(ngModel)]="updCliente.tipoDeServico" class="form-select" id="floatingSelect" (change)="onServiceChange($event)" >
             <option value="Instalacao" selected>Instalação</option>
