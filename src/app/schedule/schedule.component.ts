@@ -1,11 +1,11 @@
-import { IEvent } from './../models/IEvent';
+import { IEvent } from '../../models/IEvent';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ICliente } from '../models/ICliente';
+import { ICliente } from '../../models/ICliente';
 
 import { CalendarOptions } from '@fullcalendar/core'; // useful for typechecking
 import dayGridPlugin from '@fullcalendar/daygrid';
-import { ClienteService } from '../services/cliente.service';
+import { ClienteService } from '../../services/cliente.service';
 import ptLocale from '@fullcalendar/core/locales/pt-br';
 
 @Component({

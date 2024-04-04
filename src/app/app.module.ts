@@ -6,28 +6,34 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { SearchCustomersComponent } from './search-customers/search-customers.component';
-import { LoginService } from './services/login.service';
+import { LoginService } from '../services/login.service';
 import { HttpClientModule } from '@angular/common/http';
-import { ClienteService } from './services/cliente.service';
+import { ClienteService } from '../services/cliente.service';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import  dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { ModalComponent } from './modal/modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [
     AppComponent
     , LoginComponent
-    , SearchCustomersComponent, ScheduleComponent, NavBarComponent
+    , SearchCustomersComponent
+    , ScheduleComponent
+    , NavBarComponent
+    , ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FullCalendarModule
+    FullCalendarModule,
+    NgbModule
 
   ],
   providers: [

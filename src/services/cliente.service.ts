@@ -15,7 +15,7 @@ export class ClienteService {
   constructor(private http: HttpClient) { }
 
   Buscar(item: ICliente): Observable<IResult>{
-    
+
     return <Observable<IResult>>this.http.post('http://localhost:57239/api/Clientes/ListClientes' , item);
   }
 

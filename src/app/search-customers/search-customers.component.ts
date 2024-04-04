@@ -1,6 +1,6 @@
-import { ClienteService } from './../services/cliente.service';
+import { ClienteService } from '../../services/cliente.service';
 import { Component, OnInit } from '@angular/core';
-import { ICliente } from '../models/ICliente';
+import { ICliente } from '../../models/ICliente';
 import { Router } from '@angular/router';
 
 @Component({
@@ -111,8 +111,12 @@ export class SearchCustomersComponent implements OnInit {
       const mes = parseInt(data.substr(5, 2), 10) - 1;
       const dia = parseInt(data.substr(8, 2), 10);
 
+
+
       this.filterCliente.dataDoAtendimento = new Date(ano, mes, dia);
     }
+
+    console.log(data)
   }
 
   errorMsgInsOrUpd: string;
@@ -151,11 +155,6 @@ export class SearchCustomersComponent implements OnInit {
     return true;
   }
 
-  showMain: boolean = true;
-  showModalInsert() {
-    this.showMain = false;
-  }
-
   FindClienteList(id: number): ICliente {
     let findGroup: ICliente = this.listCliente.find((x) => x.clienteId === id);
 
@@ -189,8 +188,14 @@ export class SearchCustomersComponent implements OnInit {
     cidade: '',
   };
 
-  Update() {
+
+  updateModal: boolean = false;
+  updateCliente: ICliente
+  Update(cliente:ICliente) {
+
     // this.updCliente = this.FindClienteList(id);
+    this.updateModal = true;
+    this.updateCliente = cliente;
 
     if (!this.ValidateInsUpd(this.updCliente)) {
       alert(this.errorMsgInsOrUpd);

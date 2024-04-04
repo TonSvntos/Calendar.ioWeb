@@ -1,29 +1,11 @@
-<body  id="body" >
-<nav class="navbar navbar-expand-lg" style="background: var(--cor-primaria)">
-  <div class="container-fluid">
-    <img (click)="togleMode()"[hidden]="!darkmode" src="https://caelum-online-public.s3.amazonaws.com/1369-alura-mais-dark-mode/lua.png"/>
-    <img (click)="togleMode()" [hidden]="darkmode"src="https://caelum-online-public.s3.amazonaws.com/1369-alura-mais-dark-mode/sol.png"/>
+<body id="body">
 
-    <a class="navbar-brand" routerLink="/schedule" style="color: #fff; font-weight: bold;">Calendar.io</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div>
-      <div class="navbar-nav">
-        <a class="nav-link"  style="color: #fff" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Novo cliente</a>
-        <a class="nav-link" aria-current="page" style="color: #fff" routerLink="/schedule">Agenda</a>
-
-        <a class="nav-link" style="color: #fff;" routerLink="">Sair</a>
-      </div>
-    </div>
-  </div>
-</nav>
-
+<app-nav-bar></app-nav-bar>
 
   <div class="row container-fluid" style="margin-left: 0;">
     <!--COMECO FILTRO -->
     <div id="filtro">
-      <div >
+      <div>
         <h1 style="text-align: center;">Lista de clientes</h1>
         <table class="table">
           <thead>
@@ -96,7 +78,7 @@
               <td>{{item.tipoDeServico}}</td>
               <td style="text-align: center">
                 <div>
-                  <button class="btn" type="button" style="background-color: var(--cor-primaria); color: white;" data-bs-toggle="modal" data-bs-target="#updateModal" title="Update" (click)="FindClienteList(item.clienteId)">
+                  <button class="btn" type="button" style="background-color: var(--cor-primaria); color: white;" data-bs-toggle="modal" data-bs-target="#updateModal" title="Update"  (click)="FindClienteList(item.clienteId)">
                     <span class="fa fa-pencil" aria-hidden="true" style="cursor:pointer; "></span>
                   </button>
                 </div>
@@ -214,7 +196,7 @@
 
           />
         </div>
-        <div class="mb-3 col-6">
+        <div class="mb-3 col-4">
           <label for="inputComplemento">Cidade</label>
           <input
             type="text"
@@ -222,14 +204,10 @@
             id="inputComplemento"
             placeholder="Santos"
             [(ngModel)]="addCliente.cidade"
-
-
-
-
           />
         </div>
 
-        <div class="mb-3 col-6">
+        <div class="mb-3 col-4">
           <label for="exampleFormControlSelect1">Tipo de Serviço</label>
           <select [(ngModel)]="addCliente.tipoDeServico" class="form-select" id="floatingSelect" (change)="onServiceChange($event)" >
             <option value="Instalacao" selected>Instalação</option>
@@ -237,6 +215,16 @@
             <option value="Remocao">Remoção</option>
             <option value="Revisao">Revisão</option>
           </select>
+        </div>
+
+        <div class="mb-3 col-4">
+          <label for="inputValor">Valor</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputValor"
+            placeholder="R$600.00"
+          />
         </div>
       </main>
       <footer class="modal-footer">
@@ -249,149 +237,6 @@
 </section>
 
 
-<!-- Update modal -->
-<section
-  class="modal fade"
-  id="updateModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
-  style="text-align: left !important"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <header class="modal-header" style="background-color: var(--cor-primaria); color: #fff;">
-        <h5 class="modal-title" id="exampleModalLabel">Atualizar cliente</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-          style="background-color: #fff;"
-        ></button>
-      </header>
-      <main class="modal-body row">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label" style="text-align: left;">Nome</label>
-          <input
-            type="text"
-            class="form-control"
-            name="nomeCliente"
-            id="Nome"
-            placeholder="Nome"
-            [(ngModel)]="updCliente.nomeCliente"
-          />
-        </div>
-        <div class="mb-3 col-6">
-          <label for="exampleFormControlInput2" class="form-label"
-            >Telefone</label
-          >
-          <input
-            type="tel"
-            maxlength="11"
-            class="form-control"
-            id="exampleFormControlInput1"
-            [(ngModel)]="updCliente.telefoneCliente"
-          />
-        </div>
-        <div class="mb-3 col-6">
-          <label class="form-label">Data de Atendimento</label>
-          <input type="datetime-local"  [ngModel]="updCliente.dataDoAtendimento | date: 'yyyy-MM-dd h:mm'" (change)="updateInsertDate($event)" class="form-control" />
-        </div>
-        <div class="mb-3">
-          <label for="inputAddress">Endereço</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputAddress"
-            placeholder="Rua 9 de Julho, 23, apto71"
-            [(ngModel)]="updCliente.clienteEndereco"
-          />
-        </div>
-        <div class="mb-3 col-6">
-          <label for="inputCEP">CEP</label>
-          <input
-            type="number"
-            class="form-control"
-            id="inputCEP"
-            maxlength="8"
-            placeholder="11001001"
-            [(ngModel)]="updCliente.cep"
-            (focusout)="onFocusOutEvent($event)"
-          />
-        </div>
-        <div class="mb-3 col-6">
-          <label for="inputAddress">Bairro</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputAddress"
-            placeholder="Pompeia"
-            [(ngModel)]="updCliente.clienteBairro"
-          />
-        </div>
-
-        <div class="mb-3 col-6">
-          <label for="inputNumero">Número</label>
-          <input
-            type="number"
-            class="form-control"
-            id="inputNumero"
-            placeholder="106"
-            [(ngModel)]="updCliente.numero"
-
-
-          />
-        </div>
-        <div class="mb-3 col-6">
-          <label for="inputComplemento">Complemento</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputComplemento"
-            placeholder="bloco B apto71"
-            [(ngModel)]="updCliente.complemento"
-
-
-
-
-          />
-        </div>
-        <div class="mb-3 col-6">
-          <label for="inputComplemento">Cidade</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputComplemento"
-            placeholder="Santos"
-            [(ngModel)]="updCliente.cidade"
-
-
-
-
-          />
-        </div>
-
-
-        <div class="mb-3 col-6">
-          <label for="exampleFormControlSelect1">Tipo de Serviço</label>
-          <select [(ngModel)]="updCliente.tipoDeServico" class="form-select" id="floatingSelect" (change)="onServiceChange($event)" >
-            <option value="Instalacao" selected>Instalação</option>
-            <option value="Higienizacao">Higienização</option>
-            <option value="Remocao">Remoção</option>
-            <option value="Revisao">Revisão</option>
-          </select>
-        </div>
-      </main>
-      <footer class="modal-footer">
-        <button type="button" class="btn btn-secondary" style="background-color: var(--cor-secundaria);" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn" style="background: var(--cor-primaria); color:#fff" (click)="Update()">Atualizar</button>
-
-      </footer>
-    </div>
-  </div>
-</section>
-
-
+<app-modal *ngIf="updateModal" [Cliente]="updateCliente" ></app-modal>
 </body>
 

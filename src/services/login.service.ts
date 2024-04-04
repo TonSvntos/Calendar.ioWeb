@@ -1,4 +1,4 @@
-import { Login } from './../models/ILogin';
+import { Login } from '../models/ILogin';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
