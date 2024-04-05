@@ -3,16 +3,20 @@
 :root{
   --cor-fundo: #ededed;
   --cor-texto:  #1d1d1d;
-  --cor-primaria: #ACBCFF ;
+  --cor-primaria: #283b86;
+  --cor-calendario: #ebebeb;
+  --cor-titulo: #3b3b3b;
   /* ou esse 27C28C */
 
-  --cor-secundaria: #ff2b70;
+  --cor-secundaria: #ff6b9c;
   --label-icon: url("https://caelum-online-public.s3.amazonaws.com/1369-alura-mais-dark-mode/lua.png");
 }
 
 .dark-mode {
   --cor-fundo: #333;
-  --cor-texto: #ffffff;
+  --cor-texto: #3c3c3c;
+  --cor-titulo: #f0f0f0;
+  --cor-calendario: #ebebebb4;
   --label-icon: url("https://caelum-online-public.s3.amazonaws.com/1369-alura-mais-dark-mode/sol.png");
 }
 
@@ -33,7 +37,14 @@ thead, header
 
 }
 
+/* Altera a div dos dias no calendário */
+.fc-daygrid-day-frame {
+  background-color: var(--cor-calendario);
+}
 
+.fc-toolbar-title {
+  color: var(--cor-titulo);
+}
 
 .corBotao
 {

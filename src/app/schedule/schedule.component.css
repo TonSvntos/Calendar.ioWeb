@@ -6,10 +6,10 @@ body {
   font-family: Arial, sans-serif; height: 100%
 }
 .calendar {
+  padding: 2rem 0;
   text-align: center;
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
-  height: 70%;
 }
 
 .header {
