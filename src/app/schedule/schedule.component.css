@@ -1,7 +1,7 @@
 .nav-link{ color: #fff; } /*cor da letra na barra*/
 
 .calendar {
-  padding: 2rem 0;
+  padding: 1rem 0 0;
   text-align: center;
   width: 60%;
   margin: 0 auto;
@@ -12,6 +12,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* "Today" button, Month switch buttons */
+.fc-toolbar-chunk .fc-today-button, .fc-toolbar-chunk .fc-button-group button  {
+  padding: .1rem 1rem;
+  background-color: var(--cor-secundaria) !important;
 }
 
 .weekdays {
@@ -53,7 +59,7 @@
 .corBotao
 {
   background-color: var(--cor-primaria);
-  
+
 }
 
 .modal-content
@@ -63,16 +69,14 @@
 }
 
 
-.fc-button-primary{
-  background-color: var(--cor-secundaria) !important;
-}
+
 
 .fc-daygrid-day-top a {
   color: var(--cor-texto);
   text-decoration: none;
 }
 
-/* .full-calendar {
-  height: 80vh;
-} */
+.full-calendar {
+  height: 100%;
+}
 
