@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import url('app/schedule/schedule.component.css');
+*{
+  font-family: Calibri, Nunito, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 :root{
   --cor-fundo: #ededed;
   --cor-texto:  #1d1d1d;
@@ -13,23 +16,20 @@
 }
 
 .dark-mode {
-  --cor-fundo: #333;
-  --cor-texto: #3c3c3c;
+  --cor-fundo: #151b3a;
+  --cor-texto: #6b6b6b;
   --cor-titulo: #f0f0f0;
-  --cor-calendario: #ebebebb4;
+  --cor-calendario: #797979;
   --label-icon: url("https://caelum-online-public.s3.amazonaws.com/1369-alura-mais-dark-mode/sol.png");
 }
 
 html, body{
   height: 100%;
   background-color: var(--cor-fundo);
-  color: var(--cor-texto);
   transition: 1s;
 }
 
-*{
-  font-family: Calibri, Nunito, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+
 
 thead, header
 {
@@ -37,26 +37,3 @@ thead, header
 
 }
 
-/* Altera a div dos dias no calendário */
-.fc-daygrid-day-frame {
-  background-color: var(--cor-calendario);
-}
-
-.fc-toolbar-title {
-  color: var(--cor-titulo);
-}
-
-.corBotao
-{
-  background-color: var(--cor-primaria); color:white;
-}
-
-.modal-content
-{
-  background-color: var(--cor-fundo);
-  color: var(--cor-texto);
-}
-
-.fc-button-primary{
-  background-color: var(--cor-secundaria) !important;
-}

@@ -1,15 +1,11 @@
-
-
 .nav-link{ color: #fff; } /*cor da letra na barra*/
 
-body {
-  font-family: Arial, sans-serif; height: 100%
-}
 .calendar {
   padding: 2rem 0;
   text-align: center;
   width: 60%;
   margin: 0 auto;
+  height: 85%;
 }
 
 .header {
@@ -45,6 +41,38 @@ body {
   background-color: #f0f0f0;
 }
 
- a{
-  color: #fff !important;
+/* Altera a div dos dias no calendário */
+.fc-daygrid-day-frame {
+  background-color: var(--cor-calendario);
 }
+
+.fc-toolbar-title {
+  color: var(--cor-titulo);
+}
+
+.corBotao
+{
+  background-color: var(--cor-primaria);
+  
+}
+
+.modal-content
+{
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+
+.fc-button-primary{
+  background-color: var(--cor-secundaria) !important;
+}
+
+.fc-daygrid-day-top a {
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+/* .full-calendar {
+  height: 80vh;
+} */
+
