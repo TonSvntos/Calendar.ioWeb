@@ -46,6 +46,7 @@ export class ScheduleComponent implements OnInit {
 
             this.calendarOptions = {
               plugins: [dayGridPlugin],
+              height: 500,
               initialView: 'dayGridMonth',
               weekends: true,
               events: eventFromApiPush,

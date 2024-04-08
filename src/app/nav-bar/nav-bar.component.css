@@ -6,8 +6,12 @@
 .container-fluid a {
   padding: .5rem;
   border-radius: .25rem;
+  transition: 0.25s ease-in;
 }
-
+.container-fluid a:hover {
+  color: #b6b7ff;
+  transform: translateY(-1px);
+}
 a {
   color: #fff;
 }
