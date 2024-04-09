@@ -4,7 +4,7 @@
 
   <div class="row container-fluid" style="margin-left: 0;">
     <!--COMECO FILTRO -->
-    <div id="filtro">
+    <div id="filtro" class="main-container ">
       <div>
         <h1 style="text-align: center;">Lista de clientes</h1>
         <table class="table">
@@ -21,18 +21,30 @@
           </thead>
           <tbody>
             <tr>
-              <td><input class="form-control" type="text" name="nomeCliente" id="" [(ngModel)]="filterCliente.nomeCliente"></td>
-              <td><input class="form-control" type="number" name="" id="" [(ngModel)]="filterCliente.telefoneCliente"></td>
-              <td><input class="form-control" type="text" name="" id="" [(ngModel)]="filterCliente.clienteEndereco"></td>
-              <td><input class="form-control" type="text" name="" id="" [(ngModel)]="filterCliente.clienteBairro"></td>
-              <td><input class="form-control" type="date" name="" id="" [ngModel]="filterCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateFilterDate($event)"></td>
-              <td><select class="form-select" id="floatingSelect" (change)="onServiceFilterChange($event)">
+              <td>
+                <input class="form-control" type="text" name="nomeCliente" id="" placeholder="Ex: Carlos da Silva" [(ngModel)]="filterCliente.nomeCliente">
+              </td>
+              <td>
+                <input class="form-control" type="number" name="" id="" placeholder="(99)99123-4567" [(ngModel)]="filterCliente.telefoneCliente">
+              </td>
+              <td>
+                <input class="form-control" type="text" name="" id="" placeholder="Avenida Brasil" [(ngModel)]="filterCliente.clienteEndereco">
+              </td>
+              <td>
+                <input class="form-control" type="text" name="" id="" placeholder="Ex: Carlos da Silva" [(ngModel)]="filterCliente.clienteBairro">
+              </td>
+              <td>
+                <input class="form-control" type="date" name="" id="" [ngModel]="filterCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateFilterDate($event)">
+              </td>
+              <td>
+                <select class="form-select" id="floatingSelect" (change)="onServiceFilterChange($event)">
                 <option value="Todos" selected >Todos</option>
                 <option value="Instalacao"> Instalação</option>
                 <option value="Higienizacao">Higienização</option>
                 <option value="Remocao">Remoção</option>
                 <option value="Revisao">Revisão</option>
-              </select></td>
+              </select>
+            </td>
               <td>
                 <button type="button" (click)="Search()" class="btn corBotao"  tooltip="Search">
                   <span class="fa fa-search" aria-hidden="true" style="font-size:18px"></span>
@@ -94,7 +106,7 @@
 
 <!-- Modal -->
 <section
-  class="modal fade "
+  class="modal fade"
   id="exampleModal"
   tabindex="-1"
   aria-labelledby="exampleModalLabel"

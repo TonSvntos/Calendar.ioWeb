@@ -6,8 +6,12 @@
 .container-fluid a {
   padding: .5rem;
   border-radius: .25rem;
+  transition: 0.25s ease-in;
 }
-
+.container-fluid a:hover {
+  color: #b6b7ff;
+  transform: translateY(-1px);
+}
 a {
   color: #fff;
 }
@@ -64,8 +68,8 @@ a {
   width: 20px;
   height: 15px;
   border-radius: 50%;
-  -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
-  box-shadow: inset 12px -4px 0px 0px var(--light);
+  -webkit-box-shadow: inset 7px -2px 0px 0px var(--light);
+  box-shadow: inset 7px -2px 0px 0px var(--light);
   background-color: var(--dark);
   -webkit-transition: 0.3s;
   transition: 0.3s;

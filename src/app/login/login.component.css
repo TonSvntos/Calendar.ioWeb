@@ -1,16 +1,19 @@
-body{
+#conteudo {
+  padding: 3.75rem;
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
   height: 100%;
   display: grid;
-  grid-template-columns: 40% 60%;
-  background: #e8ece2;
 }
+
 
 .titulo{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--cor-primaria);;
+  background-color: var(--cor-primaria);
+  border-radius: 0 1rem 1rem 0;
 }
 
 h2{
@@ -79,5 +82,13 @@ h4{
   width: 200px;
   vertical-align: top;
   margin-left: 45%;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  border-radius: 1rem;
+  background-color: #e4e4e4;
 }
 

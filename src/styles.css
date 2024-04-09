@@ -1,8 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('app/schedule/schedule.component.css');
-*{
-  font-family: Calibri, Nunito, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+@import url('app/login/login.component.css');
+
 :root{
   --cor-fundo: #ededed;
   --cor-texto:  #1d1d1d;
@@ -11,16 +10,20 @@
   --cor-titulo: #3b3b3b;
   /* ou esse 27C28C */
 
-  --cor-secundaria: #ff6b9c;
+  --cor-secundaria: #2f46a5;
   --label-icon: url("https://caelum-online-public.s3.amazonaws.com/1369-alura-mais-dark-mode/lua.png");
 }
 
 .dark-mode {
   --cor-fundo: #151b3a;
-  --cor-texto: #6b6b6b;
+  --cor-texto: #d8d8d8;
   --cor-titulo: #f0f0f0;
-  --cor-calendario: #797979;
+  --cor-calendario: rgba(68, 68, 68, 0.259);
   --label-icon: url("https://caelum-online-public.s3.amazonaws.com/1369-alura-mais-dark-mode/sol.png");
+}
+
+*{
+  font-family: Calibri, Nunito, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html, body{
@@ -37,3 +40,11 @@ thead, header
 
 }
 
+@keyframes fadeIn{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

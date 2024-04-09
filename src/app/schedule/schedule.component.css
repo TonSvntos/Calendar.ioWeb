@@ -1,17 +1,33 @@
-.nav-link{ color: #fff; } /*cor da letra na barra*/
+#body {
+  height: 100%;
+}
+.nav-link{ color: #fff; } 
 
-.calendar {
-  padding: 2rem 0;
-  text-align: center;
-  width: 60%;
+.calendar-container {
+ width: 45%;
   margin: 0 auto;
-  height: 85%;
+}
+.calendar {
+  padding: 2rem 0 0;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* "Today" button, Month switch buttons */
+.fc-toolbar-chunk .fc-today-button, .fc-toolbar-chunk .fc-button-group button  {
+  padding: .1rem 1rem;
+  background-color: var(--cor-secundaria) !important;
+}
+
+.fc-col-header-cell-cushion {
+  text-decoration: none;
+  color: #f0f0f0;
 }
 
 .weekdays {
@@ -24,7 +40,6 @@
 }
 
 .days {
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -53,7 +68,6 @@
 .corBotao
 {
   background-color: var(--cor-primaria);
-  
 }
 
 .modal-content
@@ -62,17 +76,24 @@
   color: var(--cor-texto);
 }
 
-
-.fc-button-primary{
-  background-color: var(--cor-secundaria) !important;
-}
-
 .fc-daygrid-day-top a {
   color: var(--cor-texto);
   text-decoration: none;
 }
 
-/* .full-calendar {
-  height: 80vh;
-} */
+.full-calendar {
+  margin: 0 auto;
+}
 
+/*Day number*/
+.fc .fc-daygrid-day-number {
+  padding: .25rem .5rem;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+  margin-bottom: 0;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 1.5rem;
+}

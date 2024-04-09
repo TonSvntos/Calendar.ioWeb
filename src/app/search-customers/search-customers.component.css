@@ -1,9 +1,4 @@
 /* para esconder setas no input number */
-
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -12,5 +7,25 @@ input::-webkit-inner-spin-button {
 
 td{
   background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+.table {
+  border-radius: 4px;
+}
+.main-container {
+  width: 85%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.corBotao:hover {
+  background: #1e2e70;
+}
+.corBotao span {
+  filter: brightness(10);
+}
+
+.main-container h1 {
   color: var(--cor-texto);
 }
