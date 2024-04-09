@@ -16,17 +16,19 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ModalComponent } from './modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OrcamentoComponent } from './orcamento/orcamento.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent
     , LoginComponent
     , SearchCustomersComponent
     , ScheduleComponent
     , NavBarComponent
-    , ModalComponent
-  ],
+    , ModalComponent,
+      OrcamentoComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
