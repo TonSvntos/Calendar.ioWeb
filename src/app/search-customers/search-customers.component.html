@@ -22,22 +22,22 @@
           <tbody>
             <tr>
               <td>
-                <input class="form-control" type="text" name="nomeCliente" id="" placeholder="Ex: Carlos da Silva" [(ngModel)]="filterCliente.nomeCliente">
+                <input class="form-control theme" type="text" name="nomeCliente" id="" placeholder="Ex: Carlos da Silva" [(ngModel)]="filterCliente.nomeCliente">
               </td>
               <td>
-                <input class="form-control" type="number" name="" id="" placeholder="(99)99123-4567" [(ngModel)]="filterCliente.telefoneCliente">
+                <input class="form-control theme" type="number" name="" id="" placeholder="(99)99123-4567" [(ngModel)]="filterCliente.telefoneCliente">
               </td>
               <td>
-                <input class="form-control" type="text" name="" id="" placeholder="Avenida Brasil" [(ngModel)]="filterCliente.clienteEndereco">
+                <input class="form-control theme" type="text" name="" id="" placeholder="Avenida Brasil" [(ngModel)]="filterCliente.clienteEndereco">
               </td>
               <td>
-                <input class="form-control" type="text" name="" id="" placeholder="Ex: Carlos da Silva" [(ngModel)]="filterCliente.clienteBairro">
+                <input class="form-control theme" type="text" name="" id="" placeholder="Ex: Carlos da Silva" [(ngModel)]="filterCliente.clienteBairro">
               </td>
               <td>
-                <input class="form-control" type="date" name="" id="" [ngModel]="filterCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateFilterDate($event)">
+                <input class="form-control theme" type="date" name="" id="" [ngModel]="filterCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateFilterDate($event)">
               </td>
               <td>
-                <select class="form-select" id="floatingSelect" (change)="onServiceFilterChange($event)">
+                <select class="form-select theme" id="floatingSelect" (change)="onServiceFilterChange($event)">
                 <option value="Todos" selected >Todos</option>
                 <option value="Instalacao"> Instalação</option>
                 <option value="Higienizacao">Higienização</option>

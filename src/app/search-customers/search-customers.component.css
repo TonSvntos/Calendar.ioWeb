@@ -29,3 +29,7 @@ td{
 .main-container h1 {
   color: var(--cor-texto);
 }
+.theme {
+  background-color: var(--theme);
+  color: var(--cor-texto);
+}
