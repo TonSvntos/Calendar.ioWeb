@@ -44,18 +44,12 @@ export class NavBarComponent implements OnInit {
   }
 
   mobileMenu() {
-    let active = false;
-    const navBarContainer = this.body.querySelector('.navbar-nav');
-    console.log(navBarContainer);
-    const displayElements = () => {
-      if (!active) {
-        navBarContainer.classList.add('active');
-      } else {
-        navBarContainer.classList.remove('active');
-      }
-      active = !active; 
-    };
-    const toggleButton = this.body.querySelector('.navbar-toggler');
-    toggleButton.addEventListener('click', displayElements); 
+    const navBarContainer = document.querySelector('.navbar-nav');
+    const toggleButton = document.querySelector('.navbar-toggler');
+  
+    toggleButton.addEventListener('click', () => {
+      navBarContainer.classList.toggle('active');
+    });
   }
+  
 }
