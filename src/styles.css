@@ -2,6 +2,7 @@
 @import url('app/schedule/schedule.component.css');
 @import url('app/login/login.component.css');
 @import url('app/orcamento/orcamento.component.css');
+@import url('app/search-customers/search-customers.component.css');
 
 :root{
   --cor-fundo: #ededed;

@@ -8,17 +8,28 @@ input::-webkit-inner-spin-button {
 td{
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
+  font-size: .8rem;
 }
 
 .table {
   border-radius: 4px;
 }
 .main-container {
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem 0;
 }
 
+.container {
+  padding: 0;
+}
+#filtro {
+  padding: 0;
+}
+
+#filtro th {
+  font-size: .8rem;
+}
 .corBotao:hover {
   background: #1e2e70;
 }
@@ -32,4 +43,20 @@ td{
 .theme {
   background-color: var(--theme);
   color: var(--cor-texto);
+}
+
+.row>* {
+  width: auto;
+  max-width: inherit;
+}
+.row {
+  display: block;
+  margin: 0 auto;
+  padding: 0 .5rem;
+}
+
+@media (min-width: 800px) {
+  td {
+    font-size: 1rem;
+  }
 }

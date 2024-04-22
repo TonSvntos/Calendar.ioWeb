@@ -4,13 +4,21 @@
 .nav-link{ color: #fff; } 
 
 .calendar-container {
- width: 45%;
+  width:100%;
+  padding: 1rem;
   margin: 0 auto;
+  height: 90vh;
+  max-width: 100vw;
 }
 .calendar {
   padding: 2rem 0 0;
   text-align: center;
   margin: 0 auto;
+}
+
+.full-calendar {
+  height: 80vh;
+  max-height: 80vh;
 }
 
 .header {
@@ -19,12 +27,19 @@
   align-items: center;
 }
 
+.fc .fc-toolbar-title {
+  font-size: 1rem;
+}
+
 /* "Today" button, Month switch buttons */
 .fc-toolbar-chunk .fc-today-button, .fc-toolbar-chunk .fc-button-group button  {
-  padding: .1rem 1rem;
+  padding: .1rem .2rem;
   background-color: var(--cor-secundaria) !important;
 }
 
+.fc-toolbar-chunk {
+  display: flex;
+}
 .fc-col-header-cell-cushion {
   text-decoration: none;
   color: #f0f0f0;
@@ -94,6 +109,19 @@
   margin-bottom: 0;
 }
 
-.fc .fc-toolbar-title {
-  font-size: 1.5rem;
+
+
+@media (min-width: 800px) {
+  .calendar-container {
+    width: 100%;
+    max-width: 80vw;
+    padding: 0 3rem;
+  }
+  .fc .fc-toolbar-title {
+    font-size: 1.5rem;
+  }
+
+  .fc-toolbar-chunk .fc-today-button, .fc-toolbar-chunk .fc-button-group button {
+    padding: .1rem 1rem;
+  }
 }
