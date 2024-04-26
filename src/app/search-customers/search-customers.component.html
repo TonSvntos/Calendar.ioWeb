@@ -7,57 +7,50 @@
     <div id="filtro" class="main-container ">
       <div>
         <h1 style="text-align: center;">Lista de clientes</h1>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Nome</th>
-              <th scope="col">Telefone</th>
-              <th scope="col">Endereço</th>
-              <th scope="col">Bairro</th>
-              <th scope="col">Data do serviço</th>
-              <th scope="col">Tipo de Serviço</th>
-              <th scope="col">Buscar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <input class="form-control theme" type="text" name="nomeCliente" id="" placeholder="Ex: Carlos da Silva" [(ngModel)]="filterCliente.nomeCliente">
-              </td>
-              <td>
-                <input class="form-control theme" type="number" name="" id="" placeholder="(99)99123-4567" [(ngModel)]="filterCliente.telefoneCliente">
-              </td>
-              <td>
-                <input class="form-control theme" type="text" name="" id="" placeholder="Avenida Brasil" [(ngModel)]="filterCliente.clienteEndereco">
-              </td>
-              <td>
-                <input class="form-control theme" type="text" name="" id="" placeholder="Ex: Carlos da Silva" [(ngModel)]="filterCliente.clienteBairro">
-              </td>
-              <td>
-                <input class="form-control theme" type="date" name="" id="" [ngModel]="filterCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateFilterDate($event)">
-              </td>
-              <td>
-                <select class="form-select theme" id="floatingSelect" (change)="onServiceFilterChange($event)">
+        <div>
+          <form action="" class="table">
+            <ul>
+            <li>
+              <label for="nome">Nome</label>
+              <input class="form-control theme" type="text" name="nomeCliente" id="nome" placeholder="Ex: Carlos da Silva" [(ngModel)]="filterCliente.nomeCliente">
+            </li>
+            <li>
+              <label for="telefone">Telefone</label>
+              <input class="form-control theme" type="number" inputmode="numeric" pattern="[0-9]+" name="telefone" id="telefone" placeholder="(99)99123-4567" [(ngModel)]="filterCliente.telefoneCliente">
+            </li>
+            <li>
+              <label for="endereco">Endereço</label>
+              <input class="form-control theme" type="text" name="endereco" id="endereco" placeholder="Avenida Brasil" [(ngModel)]="filterCliente.clienteEndereco">
+            </li>
+            <li>
+              <label for="bairro">Bairro</label>
+              <input class="form-control theme" type="text" name="bairro" id="" placeholder="Ex: Carlos da Silva" [(ngModel)]="filterCliente.clienteBairro">
+            </li>
+            <li>
+              <label for="data-servico">Data do Serviço</label>
+              <input class="form-control theme" type="date" name="data-servico" id="dataServico" [ngModel]="filterCliente.dataDoAtendimento | date: 'yyyy-MM-dd'" (change)="updateFilterDate($event)">
+            </li>
+            <li>
+              <label for="floatingSelect">Tipo do Serviço</label>
+              <select class="form-select theme" id="floatingSelect" (change)="onServiceFilterChange($event)">
                 <option value="Todos" selected >Todos</option>
                 <option value="Instalacao"> Instalação</option>
                 <option value="Higienizacao">Higienização</option>
                 <option value="Remocao">Remoção</option>
                 <option value="Revisao">Revisão</option>
               </select>
-            </td>
-              <td>
-                <button type="button" (click)="Search()" class="btn corBotao"  tooltip="Search">
-                  <span class="fa fa-search" aria-hidden="true" style="font-size:18px"></span>
-                </button>
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
+            </li>
+          </ul>
+          <button type="button" (click)="Search()" class="btn corBotao"  tooltip="Search">
+            <p>Enviar</p>
+            <span class="fa fa-search" aria-hidden="true" style="font-size:18px"></span>
+          </button>
+          </form>
+        </div>
     </div>
       <!-- fim do filtro -->
     <!-- COMECO TABELA -->
-    <div >
+    <!-- <div >
       <div class="container" [hidden]="!buscado">
         <table class="table" >
           <thead >
@@ -99,7 +92,7 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 
