@@ -11,7 +11,9 @@ export interface ICliente{
   cidade: string;
   tipoDeServico:string;
   cep: number;
-
+  orcamento: number;
+  pagamento: number;
+  pagamentoConfirmado: boolean;
 }
 
 
