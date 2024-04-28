@@ -1,6 +1,10 @@
 .container-fluid {
-  padding: .5rem 3.75rem;
-  max-width: 90vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+  gap: 1rem;
+  position: relative;
+  /* padding: .5rem 3.75rem;
+  max-width: 90vw; */
 }
 
 .container-fluid a {
@@ -18,10 +22,14 @@ a {
 
 .navbar-nav {
   display: flex;
+  flex-direction: row;
   place-items: center center;
-  gap: 2rem;
+  gap: 1rem; 
 }
 
+.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+  justify-content: space-around;
+}
 .toggle-switch {
   position: relative;
   width: 60px;
@@ -82,4 +90,43 @@ a {
   background-color: var(--dark);
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+.navbar-toggler {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+    justify-content: space-between;
+  }
+  .navbar-nav {
+    display: grid;
+    gap: 1rem;
+    align-self: self-end;
+    grid-column: 2;
+    position: absolute;
+    top: 3.4rem;
+    right: 0;
+    width: 100%;
+    background: #4053b39d;
+    z-index: 11;
+    width: 100vw;
+    backdrop-filter: blur(4px);
+    padding: 1.5rem;
+    height: 91vh;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    pointer-events: none; 
+  }
+  .active {
+    opacity: 1;
+    pointer-events: auto; 
+  }
+  .navbar-toggler {
+    display: grid;
+    width: 50%;
+    max-width: 60px;
+    place-self: center center;
+  }
 }

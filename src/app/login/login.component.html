@@ -1,32 +1,30 @@
 <body id="conteudo">
   <div class="main-content">
-    <div>
+    <div class="inner-wrapper">
       <h4>Bem-vindo!</h4>
-      <form class="form d-flex justify-content-center">
-        <div class="form-group" style="margin-top: 2%">
+      <form class="login-form">
           <input
-            class="form-control m-3"
+            class="form-control"
             placeholder="Nome de usuario"
             [(ngModel)]="login.email"
             name="usuario"
             >
           <input
             type="password"
-            class="form-control m-3"
+            class="form-control"
             placeholder="Senha"
             [(ngModel)]="login.senha"
             name="senha"
             >
-          <button class="button m-3" role="button" style="background-color: var(--cor-primaria);" (click)="Logar()">Login</button>
-        </div>
+          <button class="button" role="button" (click)="Logar()">Login</button>
       </form>
     </div>
-    <div class="titulo">
+    <div class="logo">
       <!-- <h2>Calendar.io</h2>
       <p>Organize o seu dia!</p> -->
       <!-- <h1 style="color: white;">Escaneie aqui!</h1> -->
       <!-- <img id="QRCodeImage" src="{{ teste }}"> -->
-      <img style="height: 500px;" src="../../assets/img/logotipo.png" alt="Logotipo da aplicacao" >
+      <img src="../../assets/img/logotipo.png" alt="Logotipo da aplicacao" >
     </div>
   </div>
 </body>

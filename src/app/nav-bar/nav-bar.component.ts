@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
+ 
 export class NavBarComponent implements OnInit {
 
   constructor() { }
@@ -38,4 +39,17 @@ export class NavBarComponent implements OnInit {
     this.darkmode = !this.darkmode;
   }
 
+  ngAfterViewInit(): void {
+    this.mobileMenu(); // Call mobileMenu after the view is initialized
+  }
+
+  mobileMenu() {
+    const navBarContainer = document.querySelector('.navbar-nav');
+    const toggleButton = document.querySelector('.navbar-toggler');
+  
+    toggleButton.addEventListener('click', () => {
+      navBarContainer.classList.toggle('active');
+    });
+  }
+  
 }
