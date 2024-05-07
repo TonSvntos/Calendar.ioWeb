@@ -27,7 +27,16 @@ export class ClienteService {
     return <Observable<IResult>>this.http.put('http://localhost:57239/api/Clientes/UpdateCliente' , item);
   }
 
+  ConfirmPayment(item: ICliente): Observable<any>{
+    return <Observable<IResult>>this.http.put('http://localhost:57239/api/Clientes/ConfirmPayment' , item);
+  }
+
   GetAll(): Observable<IResult>{
     return <Observable<IResult>>this.http.get('http://localhost:57239/api/Clientes/');
+  }
+
+  GetOrcaments(item: ICliente): Observable<IResult>{
+
+    return <Observable<IResult>>this.http.post('http://localhost:57239/api/Clientes/GetOrcaments' , item);
   }
 }

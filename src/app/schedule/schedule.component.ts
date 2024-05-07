@@ -218,6 +218,9 @@ export class ScheduleComponent implements OnInit {
     numero: 0,
     complemento: '',
     cidade: '',
+    orcamento: 0,
+    pagamento: 0,
+    pagamentoConfirmado: false,
   };
 
   iconeLua: string =

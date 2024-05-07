@@ -1,7 +1,8 @@
 import { ClienteService } from '../../services/cliente.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ICliente } from '../../models/ICliente';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-search-customers',
@@ -14,10 +15,17 @@ export class SearchCustomersComponent implements OnInit {
   body: HTMLElement;
   ngOnInit(): void {
     this.body = document.querySelector('#body');
+
+
   }
+
+  private modalService = inject(NgbModal);
+	closeResult = '';
 
 
   today = new Date();
+
+
 
   onServiceFilterChange(event) {
     const selectElement = event.target;
@@ -47,6 +55,9 @@ export class SearchCustomersComponent implements OnInit {
     numero: 0,
     complemento: '',
     cidade: '',
+    orcamento: 0,
+    pagamento: 0,
+    pagamentoConfirmado: false,
   };
 
   listCliente: Array<ICliente> = [];
@@ -71,6 +82,9 @@ export class SearchCustomersComponent implements OnInit {
     numero: null,
     complemento: '',
     cidade: '',
+    orcamento: 0,
+    pagamento: 0,
+    pagamentoConfirmado: false,
   };
 
   onServiceChange(event) {
@@ -165,6 +179,34 @@ export class SearchCustomersComponent implements OnInit {
     return this.updCliente;
   }
 
+  ConfirmPayment(id: number): ICliente {
+    let findGroup: ICliente = this.listCliente.find((x) => x.clienteId === id);
+
+    if (findGroup != null) {
+      this.updCliente = findGroup;
+    }
+
+    this.ClienteService.ConfirmPayment(this.updCliente).subscribe(
+      (data) => {
+        if (data !== undefined) {
+          if (data.friendlyErrorMessage !== null) {
+            alert(data.friendlyErrorMessage);
+          } else {
+            alert('Pagamento Confirmado!');
+            this.listCliente.find((x) => { x.clienteId === id; x.pagamentoConfirmado = true;}  );
+
+          }
+        }
+      },
+      (error) => {
+        alert('Erro inesperado');
+        console.log(error);
+      }
+    );;
+
+    return this.updCliente;
+  }
+
 
   updCliente: ICliente = {
     clienteId: 0,
@@ -186,6 +228,9 @@ export class SearchCustomersComponent implements OnInit {
     numero: null,
     complemento: '',
     cidade: '',
+    orcamento: 0,
+    pagamento: 0,
+    pagamentoConfirmado: false,
   };
 
 
@@ -220,6 +265,8 @@ export class SearchCustomersComponent implements OnInit {
 
     return true;
   }
+
+
 
   Adcionar() {
     if (!this.ValidateInsUpd(this.addCliente)) {
