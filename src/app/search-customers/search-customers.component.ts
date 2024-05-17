@@ -60,7 +60,35 @@ export class SearchCustomersComponent implements OnInit {
     pagamentoConfirmado: false,
   };
 
-  listCliente: Array<ICliente> = [];
+
+
+
+  testeCliente: ICliente = {
+    clienteId: 12,
+    nomeCliente: 'Joao Freitas',
+    clienteEndereco: 'Rua do abacaxi',
+    clienteBairro: 'Oceano',
+    telefoneCliente: 123123123,
+    tipoDeServico: 'Instalacao',
+    dataDoAtendimento: new Date(
+      this.today.getFullYear(),
+      this.today.getMonth(),
+      this.today.getDate(),
+      0,
+      0,
+      0,
+      0
+    ),
+    cep: 11034545,
+    numero: 22,
+    complemento: '22',
+    cidade: 'Sao Paulo',
+    orcamento: 0,
+    pagamento: 0,
+    pagamentoConfirmado: false,
+  }
+  listCliente: Array<ICliente> = [this.testeCliente];
+
 
   addCliente: ICliente = {
     clienteId: 0,

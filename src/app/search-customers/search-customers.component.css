@@ -39,6 +39,10 @@ td{
   padding: 2rem 0;
 }
 
+.container .table{
+  flex-direction: column;
+}
+
 .table span {
   display: none;
 }
@@ -91,8 +95,9 @@ td{
     width: auto;
   }
   .main-container .table {
-    flex-direction: row;
+    flex-direction: column;
     place-items: end end;
+    max-width: 800px;
   }
   .main-container .table span {
     display: block;

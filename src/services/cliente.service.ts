@@ -35,8 +35,8 @@ export class ClienteService {
     return <Observable<IResult>>this.http.get('http://localhost:57239/api/Clientes/');
   }
 
-  GetOrcaments(item: ICliente): Observable<IResult>{
+  GetOrcaments(): Observable<IResult>{
 
-    return <Observable<IResult>>this.http.post('http://localhost:57239/api/Clientes/GetOrcaments' , item);
+    return <Observable<IResult>>this.http.get('http://localhost:57239/api/Clientes/GetOrcaments');
   }
 }
