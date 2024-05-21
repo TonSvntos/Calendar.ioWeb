@@ -31,7 +31,7 @@
             <td>TOTAL</td>
             <td>{{ OrcamentoTotal }}</td>
             <td>{{ PagamentoTotal }}</td>
-            <td><i class="fa fa-file-excel-o" style="font-size:25px;color:green;"></i></td>
+            <td (click)="GerarPlanilhaExcel()"><i class="fa fa-file-excel-o" style="font-size:25px;color:green;"></i></td>
           </tr>
         </tfoot>
       </table>

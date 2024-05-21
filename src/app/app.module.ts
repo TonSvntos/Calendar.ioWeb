@@ -17,10 +17,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ModalComponent } from './modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrcamentoComponent } from './orcamento/orcamento.component';
+import { CommonService } from '../services/common.service';
 
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent
     , LoginComponent
     , SearchCustomersComponent
@@ -40,7 +41,8 @@ import { OrcamentoComponent } from './orcamento/orcamento.component';
   ],
   providers: [
     LoginService,
-    ClienteService
+    ClienteService,
+    CommonService
   ],
   bootstrap: [AppComponent]
 })

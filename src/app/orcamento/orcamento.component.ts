@@ -1,8 +1,10 @@
+import { CommonService } from './../../services/common.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IOrcamento } from 'src/models/IOrcamento';
 import { ClienteService } from '../../services/cliente.service';
 import { ICliente } from 'src/models/ICliente';
+import { IReturnFiles } from 'src/models/IReturnFiles';
 
 
 @Component({
@@ -12,7 +14,9 @@ import { ICliente } from 'src/models/ICliente';
 })
 export class OrcamentoComponent implements OnInit {
 
-  constructor(private service: ClienteService, private router: Router) {}
+  constructor(private service: ClienteService, private router: Router,
+    private common: CommonService
+  ) {}
   OrcamentoTotal: number = 0;
   PagamentoTotal: number = 0;
 
@@ -63,6 +67,42 @@ export class OrcamentoComponent implements OnInit {
 
   }
 
+
+  GerarPlanilhaExcel(){
+    this.service.GenerateExcel(this.meses).subscribe(
+      (data) => {
+        if (data !== undefined) {
+          if (data.friendlyErrorMessage !== null) {
+            alert(data.friendlyErrorMessage);
+          } else {
+            let retorno = data.data as IReturnFiles;
+
+
+            if (!this.common.ObjIsNullOrUndefined(retorno.content)) {
+
+              let contentType = "application/octet-stream";
+              let blob2 = this.common.b64toBlob(retorno.content, contentType, 512);
+              let fileURL = URL.createObjectURL(blob2);
+              let a = document.createElement("a");
+              document.body.appendChild(a);
+              a.style.display = "none";
+              a.href = fileURL;
+              a.target = "_blank";
+              a.download = retorno.nmFile + ".xlsx";
+              a.click();
+              a.remove();
+          }
+          }
+        }
+      },
+      (error) => {
+        alert('Erro inesperado');
+        console.log(error);
+      }
+    );
+    return true;
+
+  }
 
 
 

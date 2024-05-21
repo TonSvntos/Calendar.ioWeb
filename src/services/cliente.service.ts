@@ -4,6 +4,7 @@ import { IResult } from '../models/IResult';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { IOrcamento } from 'src/models/IOrcamento';
 
 
 @Injectable({
@@ -38,5 +39,10 @@ export class ClienteService {
   GetOrcaments(): Observable<IResult>{
 
     return <Observable<IResult>>this.http.get('http://localhost:57239/api/Clientes/GetOrcaments');
+  }
+
+  GenerateExcel(item: Array<IOrcamento>): Observable<IResult>{
+
+    return <Observable<IResult>>this.http.post('http://localhost:57239/api/Clientes/GenerateExcel' , item);
   }
 }
