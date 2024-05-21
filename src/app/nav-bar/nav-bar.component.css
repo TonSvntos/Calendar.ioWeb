@@ -125,7 +125,6 @@ a {
   }
   .navbar-toggler {
     display: grid;
-    width: 50%;
     max-width: 60px;
     place-self: center center;
   }

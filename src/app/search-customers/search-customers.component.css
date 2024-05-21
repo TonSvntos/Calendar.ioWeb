@@ -15,6 +15,9 @@
   padding: 0;
   width: 100%;
 }
+.container {
+  max-width: 100%;
+}
 
 td{
   background-color: var(--cor-fundo);
@@ -30,6 +33,10 @@ td{
   gap: 1rem;
 }
 
+.form-wrapper  {
+  display: grid;
+  place-items: center center;
+}
 .main-container .table label {
   color: #535353;
 }
@@ -43,10 +50,6 @@ td{
   flex-direction: column;
 }
 
-.table span {
-  display: none;
-}
-
 .table p {
   color: #f7f7f7;
   margin-bottom: 0;
@@ -56,6 +59,8 @@ td{
 }
 #filtro {
   padding: 0;
+  display: grid;
+  gap: 2rem;
 }
 
 #filtro th {
@@ -63,9 +68,11 @@ td{
 }
 .corBotao {
   width: 100%;
+  background: #1e2e70;
+  transition: .5s;
 }
 .corBotao:hover {
-  background: #1e2e70;
+  background: #2f48ad;
 }
 .corBotao span {
   filter: brightness(10);
@@ -79,11 +86,33 @@ td{
   color: var(--cor-texto);
 }
 
-
+.main-container  ul span {
+  display: none;
+}
 .modal-body .row {
   margin: 0;
 }
+
+.container > .results {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+}
+
+.form-wrapper .table > ul {
+  display: grid;
+  gap: 1.25rem;
+}
+
+#result-wrapper {
+  width: 100%;
+}
+
 @media (min-width: 800px) {
+
+  #result-wrapper > .container {
+    max-width: 100%;
+  }
 
   .row ul {
     display: grid;
@@ -97,7 +126,7 @@ td{
   .main-container .table {
     flex-direction: column;
     place-items: end end;
-    max-width: 800px;
+    max-width: 100%;
   }
   .main-container .table span {
     display: block;
@@ -105,5 +134,38 @@ td{
   }
   .main-container .table p {
     display: none;
+  }
+
+  .form-wrapper > .table li:last-child {
+    grid-column: 2/2;
+  }
+}
+
+@media (max-width: 750px) {
+
+  #result-wrapper > th, td {
+    padding: 1rem;
+  }
+  
+  #filtro th{
+    display: none;
+  }
+  
+  .main-container .table-container td {
+    display: grid;
+    grid-template-columns: 30% auto;
+    padding: .5rem 1rem;
+    align-items: center;
+  }
+  
+  .main-container .table-container td::before {
+    content: attr(datacell) ":";
+    text-transform: capitalize; 
+    background-color: #1e2e70;
+    color: white;
+    padding: .5rem;
+  }
+  #result-wrapper > tr:nth-of-type(2n) {
+      background: hsl(0%, 0%, 0% / 0.1)
   }
 }

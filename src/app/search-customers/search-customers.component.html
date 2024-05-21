@@ -6,7 +6,7 @@
     <div id="filtro" class="main-container">
       <div>
         <h1 style="text-align: center">Lista de clientes</h1>
-        <div>
+        <div class="form-wrapper">
           <form action="" class="table">
             <ul>
               <li>
@@ -82,8 +82,8 @@
                   <option value="Revisao">Revisão</option>
                 </select>
               </li>
-            </ul>
-            <button
+              <li>
+                <button
               type="button"
               (click)="Search()"
               class="btn corBotao"
@@ -96,14 +96,17 @@
                 style="font-size: 18px"
               ></span>
             </button>
+              </li>
+            </ul>
+            
           </form>
         </div>
       </div>
       <!-- fim do filtro -->
       <!-- COMECO TABELA -->
-      <div>
-        <div class="container" >
-          <table class="table">
+      <div class="result-wrapper">
+        <div class="container table-container" >
+          <table class="table results">
             <thead>
               <tr>
                 <th scope="col">Nome</th>
@@ -121,16 +124,16 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of listCliente">
-                <td>{{ item.nomeCliente }}</td>
-                <td>{{ item.telefoneCliente }}</td>
-                <td>{{ item.clienteEndereco }}</td>
-                <td>{{ item.numero }}</td>
-                <td>{{ item.complemento }}</td>
-                <td>{{ item.clienteBairro }}</td>
-                <td>{{ item.cidade }}</td>
-                <td>{{ item.dataDoAtendimento | date : "dd/MM/yyyy" }}</td>
-                <td>{{ item.tipoDeServico }}</td>
-                <td style="text-align: center">
+                <td datacell="nome">{{ item.nomeCliente }}</td>
+                <td datacell="telefone">{{ item.telefoneCliente }}</td>
+                <td datacell="endereco">{{ item.clienteEndereco }}</td>
+                <td datacell="numero">{{ item.numero }}</td>
+                <td datacell="complemento">{{ item.complemento }}</td>
+                <td datacell="bairro">{{ item.clienteBairro }}</td>
+                <td datacell="cidade">{{ item.cidade }}</td>
+                <td datacell="data do serviço">{{ item.dataDoAtendimento | date : "dd/MM/yyyy" }}</td>
+                <td datacell="tipo de servico">{{ item.tipoDeServico }}</td>
+                <td style="text-align: center" datacell="editar">
                   <div>
                     <button
                       class="btn"
@@ -152,7 +155,7 @@
                     </button>
                   </div>
                 </td>
-                <td style="text-align: center">
+                <td style="text-align: center" datacell="confirmar">
                   <div>
                     <button
                     [disabled]="item.pagamentoConfirmado == true"
@@ -191,8 +194,7 @@
       <div class="modal-content">
         <header
           class="modal-header"
-          style="background-color: var(--cor-primaria); color: #fff"
-        >
+          style="background-color: var(--cor-primaria); color: #fff">
           <h5 class="modal-title" id="exampleModalLabel">
             Adicionar novo cliente
           </h5>
