@@ -218,7 +218,7 @@ export class SearchCustomersComponent implements OnInit {
       (data) => {
         if (data !== undefined) {
           if (data.friendlyErrorMessage !== null) {
-            alert(data.friendlyErrorMessage);
+            this.listCliente.find((x) => { x.clienteId === id; x.pagamentoConfirmado = true;}  );
           } else {
             alert('Pagamento Confirmado!');
             this.listCliente.find((x) => { x.clienteId === id; x.pagamentoConfirmado = true;}  );
@@ -227,8 +227,8 @@ export class SearchCustomersComponent implements OnInit {
         }
       },
       (error) => {
-        alert('Erro inesperado');
         console.log(error);
+        this.listCliente.find((x) => { x.clienteId === id; x.pagamentoConfirmado = true;}  );
       }
     );;
 
